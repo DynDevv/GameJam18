@@ -16,8 +16,6 @@ public class AudioMixer : MonoBehaviour{
 
     private AudioManager audiomanager;
 
-    private int mute = 1;
-
     private void Start()
     {
         audiomanager = gameObject.GetComponent<AudioManager>();
@@ -29,17 +27,17 @@ public class AudioMixer : MonoBehaviour{
         {
             if (s.type == 0)
             {
-                s.volume = AmbientVolume * mute;
+                s.volume = AmbientVolume;
             }
 
             if (s.type == 1)
             {
-                s.volume = MusicVolume * mute;
+                s.volume = MusicVolume;
             }
 
             if (s.type == 2)
             {
-                s.volume = FXVolume * mute;
+                s.volume = FXVolume;
             }
         }
     }
@@ -59,19 +57,6 @@ public class AudioMixer : MonoBehaviour{
         if (type == 2)
         {
             FXVolume = value;
-        }
-    }
-
-    public void MuteAll (bool yesno)
-    {
-        if (yesno = true)
-        {
-            mute = 0;
-        }
-
-        if (yesno = false)
-        {
-            mute = 1;
         }
     }
 }
