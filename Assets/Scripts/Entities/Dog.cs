@@ -44,9 +44,10 @@ public class Dog : MonoBehaviour {
         StartCoroutine(removeStun(stunTime));
     }
 
-    public void SetPlayer(PlayerObject player)
+    public void SetPlayer(PlayerObject playerObject)
     {
-        this.player = player;
+        player = playerObject;
+        name = player.playerName.ToString();
     }
 
     IEnumerator removeStun(float seconds)

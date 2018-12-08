@@ -82,7 +82,7 @@ public class SettingsMenu : MonoBehaviour {
 
         //output as min and sec to value text
         string text = System.Math.Floor(slider.value / 60) + " min " + slider.value % 60 + " sec";
-        Time.gameObject.transform.Find("Value").GetComponent<TextMeshPro>().SetText(text);
+        Time.transform.Find("Value").GetComponent<TextMeshPro>().SetText(text);
 
         //change in settings
         gameManager.SetTimeLimit((int)slider.value);
@@ -94,7 +94,7 @@ public class SettingsMenu : MonoBehaviour {
         Slider slider = Herd.GetComponentInChildren<Slider>();
 
         //output to value text
-        Herd.gameObject.transform.Find("Value").GetComponent<TextMeshPro>().SetText(slider.value + " sheep");
+        Herd.transform.Find("Value").GetComponent<TextMeshPro>().SetText(slider.value + " sheep");
 
         //change in settings
         gameManager.SetSheepLimit((int)slider.value);

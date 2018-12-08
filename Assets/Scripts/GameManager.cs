@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     private List<GameObject> spawns;
     private float time = 0;
     private bool running = true;
-    public Transform dogs, sheeps;
 
     [Header("Gameplay Settings")]
     [Range(10, 30)]
@@ -48,7 +47,7 @@ public class GameManager : MonoBehaviour
     public void StartGame(List<PlayerObject> playerList)
     {
         SceneManager.UnloadSceneAsync("Menu");
-        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
 
         if (playerList == null)
             return;
@@ -64,24 +63,35 @@ public class GameManager : MonoBehaviour
 
             spawn.GetComponent<SpawnArea>().SetOwner(dog);
             dog.GetComponent<Dog>().SetPlayer(player);
-
-            //NULL
-            dog.transform.parent = GameObject.Find("Dogs").transform;
             spawns.Remove(spawn);
         }
 
         //SPAWN SHEEPS
         for (int i = 0; i < sheepLimit; i++)
         {
-            GameObject sheep = Instantiate(sheepPrefab, new Vector3(), new Quaternion(0,0, Random.Range(0, 360), 0));
-            //NULL
-            sheep.transform.parent = GameObject.Find("Sheeps").transform;
+            GameObject sheep = Instantiate(sheepPrefab, new Vector3(), new Quaternion());
+            sheep.transform.Rotate(new Vector3(0, 0, 1), Random.Range(0,360));
             sheep.name = "Sheep" + (i + 1);
         }
+
+        StartCoroutine(ReorderHierachy());
+    }
+
+    IEnumerator ReorderHierachy()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        foreach (GameObject sheep in GameObject.FindGameObjectsWithTag("Sheep"))
+            sheep.transform.parent = GameObject.Find("Sheeps").transform;
+
+        foreach (GameObject dog in GameObject.FindGameObjectsWithTag("Dog"))
+            dog.transform.parent = GameObject.Find("Dogs").transform;
     }
 
     public void ChangePauseState(bool state)
     {
+        Debug.Log(GameObject.Find("Sheeps"));
+
         running = state;
         //Time.timeScale = (running) ? 1 : 0;
     }
