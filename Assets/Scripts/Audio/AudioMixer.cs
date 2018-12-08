@@ -42,11 +42,6 @@ public class AudioMixer : MonoBehaviour{
         }
     }
 
-    public void test(float dhdhfd)
-    {
-        Debug.Log("Test");
-    }
-
     public void EditSlider(int type, float value)
     {
         if (type == 0)
