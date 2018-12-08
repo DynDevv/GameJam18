@@ -8,7 +8,7 @@ public class Dog : MonoBehaviour {
     private Rigidbody2D body;
     public float speed = 1;
     public float rotation = 1;
-    private Player player;
+    private PlayerObject player;
     private bool stunned = false;
 
 	// Use this for initialization
@@ -39,7 +39,7 @@ public class Dog : MonoBehaviour {
         StartCoroutine(removeStun(stunTime));
     }
 
-    public void SetPlayer(Player player)
+    public void SetPlayer(PlayerObject player)
     {
         this.player = player;
     }

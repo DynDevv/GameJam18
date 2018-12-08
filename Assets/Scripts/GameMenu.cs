@@ -9,6 +9,11 @@ public class GameMenu : MonoBehaviour {
     //public AudioManager audioManager;
     public GameManager gameManager;
 
+    void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     public void PauseGame()
     {
         gameManager.ChangePauseState(true);
@@ -37,7 +42,8 @@ public class GameMenu : MonoBehaviour {
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("Game");
     }
 
     public void QuitGame()

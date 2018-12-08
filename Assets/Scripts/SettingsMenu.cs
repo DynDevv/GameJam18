@@ -10,8 +10,9 @@ public class SettingsMenu : MonoBehaviour {
     public GameManager gameManager;
     PlayerObject[] players;
 
-    public void Start()
+    void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         players = gameObject.GetComponentsInChildren<PlayerObject>();
         foreach(PlayerObject p in players)
         {
@@ -40,13 +41,13 @@ public class SettingsMenu : MonoBehaviour {
             }
         }
 
-        if (error || playerList.Count <= 0)
+        /*if (error || playerList.Count <= 0)
         {
             ShowSettingsErrorDialog();
         }
-        else
+        else*/
         {
-            gameManager.StartGame(players);
+            gameManager.StartGame(playerList);
         }
 	}
 
@@ -84,7 +85,7 @@ public class SettingsMenu : MonoBehaviour {
         Time.gameObject.transform.Find("Value").GetComponent<TextMeshPro>().SetText(text);
 
         //change in settings
-        gameManager.SetTimeLimit(slider.value);
+        gameManager.SetTimeLimit((int)slider.value);
     }
 
     public void AdjustHerdSlider(GameObject Herd)
@@ -96,6 +97,6 @@ public class SettingsMenu : MonoBehaviour {
         Herd.gameObject.transform.Find("Value").GetComponent<TextMeshPro>().SetText(slider.value + " sheep");
 
         //change in settings
-        gameManager.SetSheepLimit(slider.value);
+        gameManager.SetSheepLimit((int)slider.value);
     }
 }
