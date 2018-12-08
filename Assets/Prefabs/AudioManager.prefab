@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1734728534340214}
+  m_IsPrefabAsset: 1
+--- !u!1 &1734728534340214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4812045563499362}
+  - component: {fileID: 114353870163650108}
+  - component: {fileID: 114218127646457110}
+  - component: {fileID: 114362924149927884}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4812045563499362
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1734728534340214}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114218127646457110
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1734728534340214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 821d37413a186bd4697e647ea0c733d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmbientVolume: 0
+  MusicVolume: 0
+  FXVolume: 0
+--- !u!114 &114353870163650108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1734728534340214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8baa8d1bc90dd447b825d7b7f325db8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Music
+    type: 1
+    audio: {fileID: 8300000, guid: 9717029c945febc46bfbeacd700d603a, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Ambient
+    type: 0
+    audio: {fileID: 8300000, guid: 1f3ea4ac958c3724cada71e6903cb19b, type: 3}
+    volume: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: "M\xE4h 01"
+    type: 2
+    audio: {fileID: 8300000, guid: b744022315e6faa48a1687fc005caaa0, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: "M\xE4h 02"
+    type: 2
+    audio: {fileID: 8300000, guid: 79aaab5542cfd574bae1ecacf6b9d4b9, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: "M\xE4h 03"
+    type: 2
+    audio: {fileID: 8300000, guid: d40eb9f0d5ee1184f851effe86ce074d, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: "M\xE4h 04"
+    type: 2
+    audio: {fileID: 8300000, guid: d810ce68b89c59249be031c3060394e2, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: "M\xE4h 05"
+    type: 0
+    audio: {fileID: 8300000, guid: 2c5ff91d7ae20044e91dc74ef23cb3ea, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: "M\xE4h 06"
+    type: 2
+    audio: {fileID: 8300000, guid: 935da97001b744a4288a13f8f9d0f890, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: "M\xE4h 07"
+    type: 2
+    audio: {fileID: 8300000, guid: a71030b6348fccd429ec39bc02115546, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: "M\xE4h 08"
+    type: 2
+    audio: {fileID: 8300000, guid: 3f89880383e80bb4487f3c25c501a6c5, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: "M\xE4h 09"
+    type: 2
+    audio: {fileID: 8300000, guid: 9e3adb1115ca669479c682bfd660dd11, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: "M\xE4h 10"
+    type: 2
+    audio: {fileID: 8300000, guid: 6418392b3c98eab4f9b9a006e77864c6, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: "M\xE4h 11"
+    type: 2
+    audio: {fileID: 8300000, guid: 762c8b4a22eb4b944a0ce1101d5f1466, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: None
+    type: 2
+    audio: {fileID: 0}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: None
+    type: 2
+    audio: {fileID: 0}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+--- !u!114 &114362924149927884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1734728534340214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f76cae685ddd714da71deeefa361b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
