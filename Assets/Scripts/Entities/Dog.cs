@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class Dog : MonoBehaviour {
     public float speed = 1;
     public float rotation = 1;
     private Player player;
+    private bool stunned = false;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +22,9 @@ public class Dog : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (stunned)
+            return;
+        
         body.velocity = transform.right * speed;
         if (Input.GetKey("a"))
             body.rotation += rotation;
@@ -27,8 +32,21 @@ public class Dog : MonoBehaviour {
             body.rotation -= rotation;
 	}
 
+    internal void stun(float stunTime)
+    {
+        body.velocity = Vector2.zero;
+        stunned = true;
+        StartCoroutine(removeStun(stunTime));
+    }
+
     public void SetPlayer(Player player)
     {
         this.player = player;
+    }
+
+    IEnumerator removeStun(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        stunned = false;
     }
 }
