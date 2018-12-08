@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Sheep : MonoBehaviour {
 
-    public float speed = 0f;
+    public float force = 5f;
     public float triggerRadius = 0.2f;
-    public float stopDelays = 1;
 
     private Rigidbody2D body;
     private Vector3 movement;
@@ -17,7 +16,6 @@ public class Sheep : MonoBehaviour {
 	void Start () {
         body = GetComponent<Rigidbody2D>();
         body.gravityScale = 0;
-        body.drag = 0;
         body.freezeRotation = true;
 
         trigger = GetComponent<CircleCollider2D>();
@@ -31,31 +29,41 @@ public class Sheep : MonoBehaviour {
         {
             float angle = Mathf.Atan2(body.velocity.y, body.velocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            body.velocity -= body.velocity * stopDelays * Time.deltaTime;
-        }
-        else
-        {
-            body.velocity = Vector2.zero;
         }
     }
     
 
     private void run(Collider2D collision)
     {
-        
         if (collision.GetComponent<Dog>())
         {
-            body.velocity = (transform.position - collision.transform.position).normalized * speed;
+            body.AddForce((transform.position - collision.transform.position).normalized * force);
         }
     }
 
-    private void herdRun(Collider2D collision)
+    private void herdRun(Collision2D collision)
     {
-        Sheep tempSheep = collision.GetComponent<Sheep>();
+        Sheep tempSheep = collision.collider.GetComponent<Sheep>();
 
         if (tempSheep && tempSheep.body.velocity.magnitude > body.velocity.magnitude)
         {
-            body.velocity = tempSheep.body.velocity;
+            body.AddForce((transform.position - collision.transform.position).normalized * force);
+        }
+
+        if(collision.collider.tag == "Wall")
+        {
+            //*Working but not perfect
+            Vector3 collisionPoint = collision.GetContact(0).point;
+            body.AddForce((transform.position - collisionPoint).normalized * force * force);
+            //*/
+
+            /*//
+            Vector3 collisionPoint = collision.GetContact(0).point;
+            Vector3 direction = (collisionPoint - transform.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            body.AddForce(Vector3.forward * force * force);
+            //*/
         }
     }
 
@@ -72,11 +80,11 @@ public class Sheep : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        herdRun(collision.collider);
+        herdRun(collision);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        herdRun(collision.collider);
+        herdRun(collision);
     }
 }
