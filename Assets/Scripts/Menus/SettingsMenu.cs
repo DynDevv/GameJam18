@@ -73,7 +73,6 @@ public class SettingsMenu : MonoBehaviour {
         {
             b.interactable = toggle.isOn;
         }
-<<<<<<< HEAD
 
         ToggleImageVisibility(toggle.isOn);
     }
@@ -90,8 +89,6 @@ public class SettingsMenu : MonoBehaviour {
             tempColor.a = 0.75f;
         }
         image.color = tempColor;
-=======
->>>>>>> d5361c4c5f1b1ff07a9fe1fda2e8643e00409d96
     }
 
     public void AdjustTimeSlider(GameObject Time)
