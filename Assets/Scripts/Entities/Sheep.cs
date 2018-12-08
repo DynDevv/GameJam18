@@ -43,6 +43,9 @@ public class Sheep : MonoBehaviour {
 
     private void herdRun(Collision2D collision)
     {
+        if (collision == null)
+            return;
+
         Sheep tempSheep = collision.collider.GetComponent<Sheep>();
 
         if (tempSheep && tempSheep.body.velocity.magnitude > body.velocity.magnitude)

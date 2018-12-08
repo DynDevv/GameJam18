@@ -20,47 +20,43 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        players = new List<Player>();
         spawns = new List<GameObject>();
-        players.Add(new Player());
+        players = new List<Player>();
     }
 
 	// Use this for initialization
 	void Start ()
     {
         spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
-        StartGame();
+        //players.Add(new Player());
+        //StartGame(players);
     }
 	
     void Update()
     {
-        if (Input.GetKeyDown("p"))
-        {
-            if (running = !running)
-                PauseGame();
-            else
-                ContinueGame();
-        }
-
-        //UPDATE UI-TIME
         time += Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            ChangePauseState(!running);
 
         if (running && time >= timeLimit)
             StopGame();
     }
 
-    private void StartGame()
+    private void StartGame(List<Player> playerList)
     {
+        players = playerList;
+        time = 0;
+
         //SPAWN DOGS
         foreach (Player player in players)
         {
-            GameObject spawn = spawns[(int)Random.Range(0, spawns.Count - 1)];
+            GameObject spawn = spawns[(int)Random.Range(0, spawns.Count)];
             GameObject dog = Instantiate(dogPrefab, spawn.transform.position, spawn.transform.rotation);
 
             spawn.GetComponent<SpawnArea>().SetOwner(dog);
             dog.GetComponent<Dog>().SetPlayer(player);
 
-            dog.name = "Dog";
             dog.transform.parent = GameObject.Find("Dogs").transform;
             spawns.Remove(spawn);
         }
@@ -69,27 +65,18 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < sheepLimit; i++)
         {
             GameObject sheep = Instantiate(sheepPrefab, new Vector3(), new Quaternion());
-            sheep.name = "Sheep" + (i + 1);
             sheep.transform.parent = GameObject.Find("Sheeps").transform;
+            sheep.name = "Sheep" + (i + 1);
         }
     }
 
-    public static void PauseGame()
+    public void ChangePauseState(bool state)
     {
-        //map.SetActive(running);
-        Debug.Log("PAUSED");
-        Time.timeScale = 0;
+        running = state;
+        Time.timeScale = (running) ? 1 : 0;
     }
-
-    public static void ContinueGame()
-    {
-        //map.SetActive(running);
-        Time.timeScale = 1;
-    }
-
     private void StopGame()
     {
-        time = 0;
         int maxSheep = 0;
 
         foreach (SpawnArea spawn in FindObjectsOfType<SpawnArea>())
@@ -100,7 +87,20 @@ public class GameManager : MonoBehaviour
         foreach (SpawnArea spawn in FindObjectsOfType<SpawnArea>())
             if (spawn.GetOwner() != null && spawn.GetSheeps() == maxSheep)
                 Debug.Log(spawn.GetOwner().name + ": " + spawn.GetSheeps());
+    }
 
-        PauseGame();
+    public int GetTime()
+    {
+        return (int)time;
+    }
+
+    public void SetTimeLimit(int time)
+    {
+        timeLimit = time;
+    }
+
+    public void SetSheepLimit(int sheep)
+    {
+        sheepLimit = sheep;
     }
 }
