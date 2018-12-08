@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private List<Player> players;
+    private List<PlayerObject> players;
     private List<GameObject> spawns;
     private float time = 0;
     private bool running = true;
@@ -21,7 +22,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         spawns = new List<GameObject>();
-        players = new List<Player>();
+        players = new List<PlayerObject>();
     }
 
 	// Use this for initialization
@@ -43,13 +44,17 @@ public class GameManager : MonoBehaviour
             StopGame();
     }
 
-    private void StartGame(List<Player> playerList)
+    public void StartGame(List<PlayerObject> playerList)
     {
+        SceneManager.UnloadSceneAsync("Menu");
+        SceneManager.LoadScene("Game", LoadSceneMode.Additive);
+        Debug.Log(SceneManager.SetActiveScene(SceneManager.GetSceneByName("Game")));
+        
         players = playerList;
         time = 0;
 
         //SPAWN DOGS
-        foreach (Player player in players)
+        foreach (PlayerObject player in players)
         {
             GameObject spawn = spawns[(int)Random.Range(0, spawns.Count)];
             GameObject dog = Instantiate(dogPrefab, spawn.transform.position, spawn.transform.rotation);
@@ -64,7 +69,7 @@ public class GameManager : MonoBehaviour
         //SPAWN SHEEPS
         for (int i = 0; i < sheepLimit; i++)
         {
-            GameObject sheep = Instantiate(sheepPrefab, new Vector3(), new Quaternion());
+            GameObject sheep = Instantiate(sheepPrefab, new Vector3(), new Quaternion(0,0, Random.Range(0, 360), 0));
             sheep.transform.parent = GameObject.Find("Sheeps").transform;
             sheep.name = "Sheep" + (i + 1);
         }
@@ -73,7 +78,7 @@ public class GameManager : MonoBehaviour
     public void ChangePauseState(bool state)
     {
         running = state;
-        Time.timeScale = (running) ? 1 : 0;
+        //Time.timeScale = (running) ? 1 : 0;
     }
     private void StopGame()
     {
