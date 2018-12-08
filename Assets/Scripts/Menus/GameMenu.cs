@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameMenu : MonoBehaviour {
-
-    //public AudioManager audioManager;
+public class GameMenu : MonoBehaviour
+{
+    public AudioMixer audioMixer;
     public GameManager gameManager;
 
-    void Start()
+    public void Start()
     {
+        audioMixer = FindObjectOfType<AudioMixer>();
         gameManager = FindObjectOfType<GameManager>();
     }
 
@@ -26,24 +27,25 @@ public class GameMenu : MonoBehaviour {
 
     public void ChangeMusicVolume(Slider slider)
     {
-        Debug.Log("Music volume: " + slider.value);
-        //audioManager.
+        //Debug.Log("Music volume: " + slider.value);
+        audioMixer.EditSlider(1, slider.value);
     }
 
     public void ChangeAmbientVolume(Slider slider)
     {
-        Debug.Log("Ambient Sounds volume: " + slider.value);
+        //Debug.Log("Ambient Sounds volume: " + slider.value);
+        audioMixer.EditSlider(0, slider.value);
     }
 
     public void ChangeSFXVolume(Slider slider)
     {
-        Debug.Log("Sound Effects volume: " + slider.value);
+        //Debug.Log("Sound Effects volume: " + slider.value);
+        audioMixer.EditSlider(2, slider.value);
     }
 
     public void RestartGame()
     {
-        SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync("Game");
+        SceneManager.LoadScene("Menu");
     }
 
     public void QuitGame()

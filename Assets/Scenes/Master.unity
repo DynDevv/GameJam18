@@ -139,7 +139,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 258565551}
-  - {fileID: 984701761}
+  - {fileID: 1814638201}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -188,11 +188,6 @@ MonoBehaviour:
   dogPrefab: {fileID: 1387097727274616, guid: 35b6818a22d9bfc489859c30b54585ea, type: 2}
   sheepPrefab: {fileID: 1405609447797002, guid: d27594d57d8479048b00989801bf28d3,
     type: 2}
---- !u!4 &984701761 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4812045563499362, guid: 835c04e7a2b176945bf5be078b65407d,
-    type: 2}
-  m_PrefabInternal: {fileID: 1106372389}
 --- !u!1001 &1106372389
 Prefab:
   m_ObjectHideFlags: 0
@@ -232,6 +227,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4336723552779832, guid: 835c04e7a2b176945bf5be078b65407d, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114437350310517736, guid: 835c04e7a2b176945bf5be078b65407d,
+        type: 2}
+      propertyPath: AmbientVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114437350310517736, guid: 835c04e7a2b176945bf5be078b65407d,
+        type: 2}
+      propertyPath: MusicVolume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114437350310517736, guid: 835c04e7a2b176945bf5be078b65407d,
+        type: 2}
+      propertyPath: FXVolume
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 835c04e7a2b176945bf5be078b65407d, type: 2}
   m_IsPrefabAsset: 0
+--- !u!4 &1814638201 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4336723552779832, guid: 835c04e7a2b176945bf5be078b65407d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1106372389}
