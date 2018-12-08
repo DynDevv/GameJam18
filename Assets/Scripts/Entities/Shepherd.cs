@@ -13,10 +13,12 @@ public class Shepherd : MonoBehaviour {
     private List<Dog> otherDogs = new List<Dog>();
     private float timer = 0;
     private bool ready = true;
+    private Animator anim;
 
 	// Use this for initialization
 	void Start () {
         readyTime += stunTime;
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -38,6 +40,7 @@ public class Shepherd : MonoBehaviour {
                 }
                 otherDogs.Clear();
                 ready = false;
+                anim.SetBool("attacking", true);
                 StartCoroutine(makeReady(readyTime));
             }
         }
@@ -68,6 +71,11 @@ public class Shepherd : MonoBehaviour {
         {
             otherDogs.Remove(tempDog);
         }
+    }
+
+    private void disableAttacking()
+    {
+        anim.SetBool("attacking", false);
     }
 
     IEnumerator makeReady(float seconds)

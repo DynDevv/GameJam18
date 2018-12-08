@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class Dog : MonoBehaviour {
 
-    private Rigidbody2D body;
     public float speed = 1;
     public float rotation = 1;
+
+    private Rigidbody2D body;
     private PlayerObject player;
     private bool stunned = false;
+    private Animator anim;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +19,8 @@ public class Dog : MonoBehaviour {
         body.gravityScale = 0;  
         body.drag = 0;
         body.freezeRotation = true;
+
+        anim = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -36,6 +40,7 @@ public class Dog : MonoBehaviour {
     {
         body.velocity = Vector2.zero;
         stunned = true;
+        anim.SetBool("stunned", true);
         StartCoroutine(removeStun(stunTime));
     }
 
@@ -48,5 +53,7 @@ public class Dog : MonoBehaviour {
     {
         yield return new WaitForSeconds(seconds);
         stunned = false;
+        anim.SetBool("stunned", false);
+
     }
 }
