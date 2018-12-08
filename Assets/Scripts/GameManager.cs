@@ -24,14 +24,6 @@ public class GameManager : MonoBehaviour
         spawns = new List<GameObject>();
         players = new List<PlayerObject>();
     }
-
-	// Use this for initialization
-	void Start ()
-    {
-        spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
-        //players.Add(new Player());
-        //StartGame(players);
-    }
 	
     void Update()
     {
@@ -49,11 +41,24 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync("Menu");
         SceneManager.LoadSceneAsync("Game", LoadSceneMode.Additive);
 
-        if (playerList == null)
+        if (playerList != null)
+            players = playerList;
+        else
             return;
 
-        players = playerList;
+        StartCoroutine(InitAfterLoad());        
+    }
+
+    IEnumerator InitAfterLoad()
+    {
+        //DELAYED START WITH COUNTER?
+        yield return new WaitForSeconds(1f);
+
+        spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
         time = 0;
+
+        //TODO REMOVE LATER
+        players.Add(new PlayerObject());
 
         //SPAWN DOGS
         foreach (PlayerObject player in players)
@@ -61,39 +66,27 @@ public class GameManager : MonoBehaviour
             GameObject spawn = spawns[(int)Random.Range(0, spawns.Count)];
             GameObject dog = Instantiate(dogPrefab, spawn.transform.position, spawn.transform.rotation);
 
-            spawn.GetComponent<SpawnArea>().SetOwner(dog);
-            dog.GetComponent<Dog>().SetPlayer(player);
             spawns.Remove(spawn);
+            spawn.GetComponent<SpawnArea>().SetOwner(dog);
+            dog.transform.parent = GameObject.Find("Dogs").transform;
+            dog.GetComponent<Dog>().SetPlayer(player);
         }
 
         //SPAWN SHEEPS
         for (int i = 0; i < sheepLimit; i++)
         {
             GameObject sheep = Instantiate(sheepPrefab, new Vector3(), new Quaternion());
-            sheep.transform.Rotate(new Vector3(0, 0, 1), Random.Range(0,360));
+
+            sheep.transform.Rotate(new Vector3(0, 0, 1), Random.Range(0, 360));
+            sheep.transform.parent = GameObject.Find("Sheeps").transform;
             sheep.name = "Sheep" + (i + 1);
         }
-
-        StartCoroutine(ReorderHierachy());
-    }
-
-    IEnumerator ReorderHierachy()
-    {
-        yield return new WaitForSeconds(0.1f);
-
-        foreach (GameObject sheep in GameObject.FindGameObjectsWithTag("Sheep"))
-            sheep.transform.parent = GameObject.Find("Sheeps").transform;
-
-        foreach (GameObject dog in GameObject.FindGameObjectsWithTag("Dog"))
-            dog.transform.parent = GameObject.Find("Dogs").transform;
     }
 
     public void ChangePauseState(bool state)
     {
-        Debug.Log(GameObject.Find("Sheeps"));
-
         running = state;
-        //Time.timeScale = (running) ? 1 : 0;
+        Time.timeScale = (running) ? 1 : 0;
     }
     private void StopGame()
     {
