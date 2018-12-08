@@ -16,7 +16,7 @@ public class SettingsMenu : MonoBehaviour {
         players = gameObject.GetComponentsInChildren<PlayerObject>();
         foreach(PlayerObject p in players)
         {
-            p.gameObject.transform.Find("name").GetComponent<TextMeshProUGUI>().SetText(p.playerName.ToString());
+            p.gameObject.transform.Find("name").GetComponent<TextMeshPro>().SetText(p.playerName.ToString());
             p.gameObject.transform.Find("icon").GetComponent<Image>().sprite = p.icon;
         }
     }
@@ -73,22 +73,6 @@ public class SettingsMenu : MonoBehaviour {
         {
             b.interactable = toggle.isOn;
         }
-
-        ToggleImageVisibility(toggle.isOn);
-    }
-
-    private void ToggleImageVisibility(bool visible)
-    {
-        Image image = GetComponent<Image>();
-        Color tempColor = image.color;
-        if (visible)
-        {
-            tempColor.a = 1f;
-        } else
-        {
-            tempColor.a = 0.75f;
-        }
-        image.color = tempColor;
     }
 
     public void AdjustTimeSlider(GameObject Time)
@@ -98,7 +82,7 @@ public class SettingsMenu : MonoBehaviour {
 
         //output as min and sec to value text
         string text = System.Math.Floor(slider.value / 60) + " min " + slider.value % 60 + " sec";
-        Time.transform.Find("Value").GetComponent<TextMeshProUGUI>().SetText(text);
+        Time.transform.Find("Value").GetComponent<TextMeshPro>().SetText(text);
 
         //change in settings
         gameManager.SetTimeLimit((int)slider.value);
@@ -110,7 +94,7 @@ public class SettingsMenu : MonoBehaviour {
         Slider slider = Herd.GetComponentInChildren<Slider>();
 
         //output to value text
-        Herd.transform.Find("Value").GetComponent<TextMeshProUGUI>().SetText(slider.value + " sheep");
+        Herd.transform.Find("Value").GetComponent<TextMeshPro>().SetText(slider.value + " sheep");
 
         //change in settings
         gameManager.SetSheepLimit((int)slider.value);
