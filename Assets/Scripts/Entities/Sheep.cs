@@ -15,8 +15,6 @@ public class Sheep : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         body = GetComponent<Rigidbody2D>();
-        body.gravityScale = 0;
-        body.freezeRotation = true;
 
         trigger = GetComponent<CircleCollider2D>();
         trigger.radius = triggerRadius;
@@ -57,7 +55,7 @@ public class Sheep : MonoBehaviour {
         {
             //*Working but not perfect
             Vector3 collisionPoint = collision.GetContact(0).point;
-            body.AddForce((transform.position - collisionPoint).normalized * force * force);
+            body.AddForce((transform.position - collisionPoint).normalized * force * 2);
             //*/
 
             /*//
