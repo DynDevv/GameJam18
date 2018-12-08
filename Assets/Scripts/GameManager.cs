@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private List<GameObject> spawns;
     private float time = 0;
     private bool running = true;
+    public Transform dogs, sheeps;
 
     [Header("Gameplay Settings")]
     [Range(10, 30)]
@@ -48,8 +49,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("Menu");
         SceneManager.LoadScene("Game", LoadSceneMode.Additive);
-        Debug.Log(SceneManager.SetActiveScene(SceneManager.GetSceneByName("Game")));
-        
+
+        if (playerList == null)
+            return;
+
         players = playerList;
         time = 0;
 
@@ -62,6 +65,7 @@ public class GameManager : MonoBehaviour
             spawn.GetComponent<SpawnArea>().SetOwner(dog);
             dog.GetComponent<Dog>().SetPlayer(player);
 
+            //NULL
             dog.transform.parent = GameObject.Find("Dogs").transform;
             spawns.Remove(spawn);
         }
@@ -70,6 +74,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < sheepLimit; i++)
         {
             GameObject sheep = Instantiate(sheepPrefab, new Vector3(), new Quaternion(0,0, Random.Range(0, 360), 0));
+            //NULL
             sheep.transform.parent = GameObject.Find("Sheeps").transform;
             sheep.name = "Sheep" + (i + 1);
         }
