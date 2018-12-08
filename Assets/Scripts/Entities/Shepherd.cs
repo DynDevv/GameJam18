@@ -43,7 +43,7 @@ public class Shepherd : MonoBehaviour {
         }
 	}
 
-    public void setOwnDog(Dog own)
+    public void SetOwnDog(Dog own)
     {
         ownDog = own;
     }

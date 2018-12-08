@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114750667597152764}
   - component: {fileID: 50639936584077378}
   - component: {fileID: 70136777475750060}
+  - component: {fileID: 95825309000303014}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Dog
@@ -38,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1071462077954532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5104076, y: -0.00045182928, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 4, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,6 +79,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.16, y: 0.16}
   m_Direction: 0
+--- !u!95 &95825309000303014
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1071462077954532}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114750667597152764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,8 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02788e1e3b3dcbe40a4ddb41ad664952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  rotation: 2
+  speed: 2
+  rotation: 3
 --- !u!212 &212032686633546222
 SpriteRenderer:
   m_ObjectHideFlags: 1

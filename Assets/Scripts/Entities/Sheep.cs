@@ -9,12 +9,14 @@ public class Sheep : MonoBehaviour {
 
     private Rigidbody2D body;
     private Vector3 movement;
+    private Animator anim;
 
     private CircleCollider2D trigger;
 
 	// Use this for initialization
 	void Start () {
         body = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
         trigger = GetComponent<CircleCollider2D>();
         trigger.radius = triggerRadius;
@@ -23,15 +25,20 @@ public class Sheep : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if(body.velocity.magnitude > 0.1)
+        anim.SetFloat("speed", body.velocity.magnitude);
+        if(body.velocity.magnitude > 0.5)
         {
             float angle = Mathf.Atan2(body.velocity.y, body.velocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
+        else
+        {
+            body.velocity = Vector2.zero;
+        }
     }
     
 
-    private void run(Collider2D collision)
+    private void Run(Collider2D collision)
     {
         if (collision.GetComponent<Dog>())
         {
@@ -39,7 +46,7 @@ public class Sheep : MonoBehaviour {
         }
     }
 
-    private void herdRun(Collision2D collision)
+    private void HerdRun(Collision2D collision)
     {
         if (collision == null)
             return;
@@ -58,7 +65,7 @@ public class Sheep : MonoBehaviour {
             body.AddForce((transform.position - collisionPoint).normalized * force * 2);
             //*/
 
-            /*//
+            /*//Not working
             Vector3 collisionPoint = collision.GetContact(0).point;
             Vector3 direction = (collisionPoint - transform.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -70,22 +77,22 @@ public class Sheep : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        run(collision);
+        Run(collision);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        run(collision);
+        Run(collision);
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        herdRun(collision);
+        HerdRun(collision);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        herdRun(collision);
+        HerdRun(collision);
     }
 }

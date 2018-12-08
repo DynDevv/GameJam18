@@ -85,9 +85,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerRadius: 0.3
-  hitTime: 2
-  stunTime: 2
-  readyTime: 2
+  hitTime: 0.5
+  stunTime: 1.5
+  readyTime: 0.5
 --- !u!212 &212368015491376334
 SpriteRenderer:
   m_ObjectHideFlags: 1
