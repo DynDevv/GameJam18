@@ -5,9 +5,9 @@ using UnityEngine;
 public class Shepherd : MonoBehaviour {
 
     public float triggerRadius = 0.3f;
-    public float hitTime = 2;
-    public float stunTime = 2;
-    public float readyTime = 2;
+    public float hitTime = 0.5f;
+    public float stunTime = 1.5f;
+    public float readyTime = 0.5f;
     
     private Dog ownDog;
     private List<Dog> otherDogs = new List<Dog>();

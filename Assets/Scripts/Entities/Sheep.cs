@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sheep : MonoBehaviour {
 
     public float force = 5f;
-    public float triggerRadius = 0.2f;
+    public float triggerRadius = 1f;
 
     private Rigidbody2D body;
     private Vector3 movement;
@@ -40,9 +40,18 @@ public class Sheep : MonoBehaviour {
 
     private void Run(Collider2D collision)
     {
-        if (collision.GetComponent<Dog>())
+        Dog tempDog = collision.GetComponent<Dog>();
+        if (tempDog)
         {
-            body.AddForce((transform.position - collision.transform.position).normalized * force);
+            if (tempDog.IsSheep())
+            {
+                body.AddForce((collision.transform.position - transform.position).normalized * force * 3);
+            }
+            else
+            {
+                body.AddForce((transform.position - collision.transform.position).normalized * force);
+            }
+            
         }
     }
 
