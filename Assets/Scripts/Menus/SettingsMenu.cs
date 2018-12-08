@@ -12,6 +12,8 @@ public class SettingsMenu : MonoBehaviour {
 
     void Start()
     {
+        //TODO ev load new scene with playerlist from gameManager if given
+
         gameManager = FindObjectOfType<GameManager>();
         players = gameObject.GetComponentsInChildren<PlayerObject>();
         foreach(PlayerObject p in players)

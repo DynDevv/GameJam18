@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     [Range(30, 300)]
     [Tooltip("Time in seconds")]
     public int timeLimit = 30;
-    public GameObject dogPrefab;
-    public GameObject sheepPrefab;
+
+    public GameObject dogPrefab, sheepPrefab, shepardPrefab;
 
     void Awake()
     {
@@ -57,19 +57,20 @@ public class GameManager : MonoBehaviour
         spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
         time = 0;
 
-        //TODO REMOVE LATER
-        players.Add(new PlayerObject());
-
-        //SPAWN DOGS
+        //SPAWN DOGS & SHEPARDS
         foreach (PlayerObject player in players)
         {
             GameObject spawn = spawns[(int)Random.Range(0, spawns.Count)];
             GameObject dog = Instantiate(dogPrefab, spawn.transform.position, spawn.transform.rotation);
 
-            spawns.Remove(spawn);
             spawn.GetComponent<SpawnArea>().SetOwner(dog);
             dog.transform.parent = GameObject.Find("Dogs").transform;
             dog.GetComponent<Dog>().SetPlayer(player);
+
+            GameObject shepard = Instantiate(shepardPrefab, spawn.transform.position, spawn.transform.rotation);
+            shepard.transform.parent = GameObject.Find("Shepards").transform;
+
+            spawns.Remove(spawn);
         }
 
         //SPAWN SHEEPS
@@ -85,7 +86,7 @@ public class GameManager : MonoBehaviour
 
     public void ChangePauseState(bool state)
     {
-        running = state;
+        running = !state;
         Time.timeScale = (running) ? 1 : 0;
     }
     private void StopGame()
@@ -105,15 +106,5 @@ public class GameManager : MonoBehaviour
     public int GetTime()
     {
         return (int)time;
-    }
-
-    public void SetTimeLimit(int time)
-    {
-        timeLimit = time;
-    }
-
-    public void SetSheepLimit(int sheep)
-    {
-        sheepLimit = sheep;
     }
 }

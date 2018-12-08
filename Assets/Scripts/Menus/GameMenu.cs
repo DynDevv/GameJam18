@@ -27,18 +27,21 @@ public class GameMenu : MonoBehaviour {
 
     public void ChangeMusicVolume(Slider slider)
     {
+        audioMixer.MuteAll(false);
         audioMixer.EditSlider(1, slider.value);
         //Debug.Log("Music volume: " + slider.value);
     }
 
     public void ChangeAmbientVolume(Slider slider)
     {
+        audioMixer.MuteAll(false);
         audioMixer.EditSlider(0, slider.value);
         //Debug.Log("Ambient Sounds volume: " + slider.value);
     }
 
     public void ChangeSFXVolume(Slider slider)
     {
+        audioMixer.MuteAll(false);
         audioMixer.EditSlider(2, slider.value);
         //Debug.Log("Sound Effects volume: " + slider.value);
     }
