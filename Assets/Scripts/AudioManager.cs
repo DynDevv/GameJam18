@@ -49,7 +49,7 @@ public class AudioManager : MonoBehaviour {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.Log("Audio Clip" + name + "not found!");
+            Debug.Log("Audio clip" + name + "not found!");
             return;
         }
         s.source.Play();

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class AudioMixer : MonoBehaviour{
+public class AudioMixer : MonoBehaviour
+{
 
     [Range(0f, 1f)]
     public float AmbientVolume;
@@ -16,6 +17,8 @@ public class AudioMixer : MonoBehaviour{
 
     private AudioManager audiomanager;
 
+    private int mute = 1;
+
     private void Start()
     {
         audiomanager = gameObject.GetComponent<AudioManager>();
@@ -27,17 +30,17 @@ public class AudioMixer : MonoBehaviour{
         {
             if (s.type == 0)
             {
-                s.volume = AmbientVolume;
+                s.volume = AmbientVolume * mute;
             }
 
             if (s.type == 1)
             {
-                s.volume = MusicVolume;
+                s.volume = MusicVolume * mute;
             }
 
             if (s.type == 2)
             {
-                s.volume = FXVolume;
+                s.volume = FXVolume * mute;
             }
         }
     }
@@ -57,6 +60,19 @@ public class AudioMixer : MonoBehaviour{
         if (type == 2)
         {
             FXVolume = value;
+        }
+    }
+
+    public void MuteAll(bool yesno)
+    {
+        if (yesno == true)
+        {
+            mute = 0;
+        }
+
+        if (yesno == false)
+        {
+            mute = 1;
         }
     }
 }

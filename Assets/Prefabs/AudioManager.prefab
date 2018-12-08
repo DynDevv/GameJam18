@@ -9,19 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1115354591517554}
+  m_RootGameObject: {fileID: 1734728534340214}
   m_IsPrefabAsset: 1
---- !u!1 &1115354591517554
+--- !u!1 &1734728534340214
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4336723552779832}
-  - component: {fileID: 114437350310517736}
-  - component: {fileID: 114087346569866916}
-  - component: {fileID: 114187207583288258}
+  - component: {fileID: 4812045563499362}
+  - component: {fileID: 114353870163650108}
+  - component: {fileID: 114218127646457110}
+  - component: {fileID: 114362924149927884}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -29,12 +29,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4336723552779832
+--- !u!4 &4812045563499362
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1115354591517554}
+  m_GameObject: {fileID: 1734728534340214}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -42,12 +42,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114087346569866916
+--- !u!114 &114218127646457110
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1115354591517554}
+  m_GameObject: {fileID: 1734728534340214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 821d37413a186bd4697e647ea0c733d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmbientVolume: 0
+  MusicVolume: 0
+  FXVolume: 0
+--- !u!114 &114353870163650108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1734728534340214}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8baa8d1bc90dd447b825d7b7f325db8, type: 3}
@@ -144,28 +158,14 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
---- !u!114 &114187207583288258
+--- !u!114 &114362924149927884
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1115354591517554}
+  m_GameObject: {fileID: 1734728534340214}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f76cae685ddd714da71deeefa361b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114437350310517736
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1115354591517554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 821d37413a186bd4697e647ea0c733d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AmbientVolume: 0
-  MusicVolume: 0
-  FXVolume: 0
