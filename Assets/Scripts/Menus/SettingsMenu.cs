@@ -16,8 +16,9 @@ public class SettingsMenu : MonoBehaviour {
         players = gameObject.GetComponentsInChildren<PlayerObject>();
         foreach(PlayerObject p in players)
         {
-            p.gameObject.transform.Find("name").GetComponent<TextMeshPro>().SetText(p.playerName.ToString());
+            p.gameObject.transform.Find("name").GetComponent<TextMeshProUGUI>().SetText(p.playerName.ToString());
             p.gameObject.transform.Find("icon").GetComponent<Image>().sprite = p.icon;
+            TogglePlayer(p);
         }
     }
 
@@ -74,12 +75,13 @@ public class SettingsMenu : MonoBehaviour {
             b.interactable = toggle.isOn;
         }
 
-        ToggleImageVisibility(toggle.isOn);
+        ToggleImageVisibility(player, toggle.isOn);
+        ToggleImageVisibility(player, toggle.isOn);
     }
 
-    private void ToggleImageVisibility(bool visible)
+    private void ToggleImageVisibility(PlayerObject p, bool visible)
     {
-        Image image = GetComponent<Image>();
+        Image image = p.gameObject.transform.Find("icon").GetComponent<Image>();
         var tempColor = image.color;
         if (visible)
         {
@@ -91,6 +93,21 @@ public class SettingsMenu : MonoBehaviour {
         image.color = tempColor;
     }
 
+    private void ToggleNameVisibility(PlayerObject p, bool visible)
+    {
+        TextMeshProUGUI text = p.gameObject.transform.Find("icon").GetComponent<TextMeshProUGUI>();
+        var tempColor = text.color;
+        if (visible)
+        {
+            tempColor.a = 1f;
+        }
+        else
+        {
+            tempColor.a = 0.75f;
+        }
+        text.color = tempColor;
+    }
+
     public void AdjustTimeSlider(GameObject Time)
     {
         //read slider value
@@ -98,7 +115,7 @@ public class SettingsMenu : MonoBehaviour {
 
         //output as min and sec to value text
         string text = System.Math.Floor(slider.value / 60) + " min " + slider.value % 60 + " sec";
-        Time.transform.Find("Value").GetComponent<TextMeshPro>().SetText(text);
+        Time.transform.Find("Value").GetComponent<TextMeshProUGUI>().SetText(text);
 
         //change in settings
         gameManager.timeLimit = ((int)slider.value);
@@ -110,7 +127,7 @@ public class SettingsMenu : MonoBehaviour {
         Slider slider = Herd.GetComponentInChildren<Slider>();
 
         //output to value text
-        Herd.transform.Find("Value").GetComponent<TextMeshPro>().SetText(slider.value + " sheep");
+        Herd.transform.Find("Value").GetComponent<TextMeshProUGUI>().SetText(slider.value + " sheep");
 
         //change in settings
         gameManager.sheepLimit = ((int)slider.value);
