@@ -65,12 +65,12 @@ public class AudioMixer : MonoBehaviour
 
     public void MuteAll(bool yesno)
     {
-        if (yesno = true)
+        if (yesno == true)
         {
             mute = 0;
         }
 
-        if (yesno = false)
+        if (yesno == false)
         {
             mute = 1;
         }
