@@ -80,7 +80,7 @@ public class SettingsMenu : MonoBehaviour {
     private void ToggleImageVisibility(bool visible)
     {
         Image image = GetComponent<Image>();
-        Color tempColor = image.color;
+        var tempColor = image.color;
         if (visible)
         {
             tempColor.a = 1f;
@@ -101,7 +101,7 @@ public class SettingsMenu : MonoBehaviour {
         Time.transform.Find("Value").GetComponent<TextMeshProUGUI>().SetText(text);
 
         //change in settings
-        gameManager.SetTimeLimit((int)slider.value);
+        gameManager.timeLimit = ((int)slider.value);
     }
 
     public void AdjustHerdSlider(GameObject Herd)
@@ -113,6 +113,6 @@ public class SettingsMenu : MonoBehaviour {
         Herd.transform.Find("Value").GetComponent<TextMeshProUGUI>().SetText(slider.value + " sheep");
 
         //change in settings
-        gameManager.SetSheepLimit((int)slider.value);
+        gameManager.sheepLimit = ((int)slider.value);
     }
 }
