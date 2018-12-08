@@ -41,4 +41,27 @@ public class AudioMixer : MonoBehaviour{
             }
         }
     }
+
+    public void test(float dhdhfd)
+    {
+        Debug.Log("Test");
+    }
+
+    public void EditSlider(int type, float value)
+    {
+        if (type == 0)
+        {
+            AmbientVolume = value;
+        }
+
+        if (type == 1)
+        {
+            MusicVolume = value;
+        }
+
+        if (type == 2)
+        {
+            FXVolume = value;
+        }
+    }
 }
