@@ -47,6 +47,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: dog1
+  - name: Dog
     uniqueID: 670660987
+    locked: 0
+  - name: Over
+    uniqueID: 1276104089
     locked: 0
