@@ -69,7 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 3
-  addSpeed: 2
+  addSpeed: -1
 --- !u!212 &212027179732266506
 SpriteRenderer:
   m_ObjectHideFlags: 1

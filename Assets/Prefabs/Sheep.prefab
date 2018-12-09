@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 5
   triggerRadius: 1
+  centerMovement: 8
 --- !u!114 &114667947952339432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -175,7 +176,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3afb52395e741a647ae0a043033c9454, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 704e0e47203d1c4488ddf69e53c97eea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
