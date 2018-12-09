@@ -8,16 +8,20 @@ public class GameManager : MonoBehaviour
 {
     private List<PlayerObject> players;
     private List<GameObject> spawns;
-    private float time = 0;
+    private float time = 999;
+    private float timer;
     private bool running = false;
+    private Color color = Color.white;
     private GameMenu menu;
 
     [Header("Gameplay Settings")]
-    [Range(10, 30)]
-    public int sheepLimit = 10;
+    [Range(10, 50)]
+    public int sheepLimit = 40;
     [Range(30, 300)]
     [Tooltip("Time in seconds")]
-    public int timeLimit = 30;
+    public int timeLimit = 120;
+    [Range(10, 60)]
+    public int startTimer = 30;
 
     public bool muted = false;
     public GameObject dogPrefab, sheepPrefab, shepardPrefab;
@@ -37,14 +41,35 @@ public class GameManager : MonoBehaviour
     {
         if (running)
         {
-            time += Time.deltaTime;
+            time -= Time.deltaTime;
 
-            if (time >= timeLimit)
+            if (time <= 0)
                 StopGame();
+
+            UpdateTimer();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
             ChangePauseState(!running);
+    }
+
+    private void UpdateTimer()
+    {
+        timer += Time.deltaTime;
+
+        if (color.a == 0f && time <= startTimer)
+        {
+            color.a = 1f;
+            GameObject.Find("Timer").GetComponentInChildren<TextMeshProUGUI>().color = color;
+        }
+
+        if(timer >= 1f)
+        {
+            timer -= 1f;
+
+            if ((int)time >= 0)
+                GameObject.Find("Timer").GetComponentInChildren<TextMeshProUGUI>().SetText(((int)time + 1).ToString());
+        }
     }
 
     public void StartGame(List<PlayerObject> playerList)
@@ -57,15 +82,14 @@ public class GameManager : MonoBehaviour
         else
             return;
 
+        color.a = 0f;
         Time.timeScale = 1;
+        StopAllCoroutines();
         StartCoroutine(InitAfterDelay());        
     }
 
     private void UpdateCountdown(string value)
     {
-        if (menu == null)
-            menu = FindObjectOfType<GameMenu>();
-
         menu.SetCountdownText(value.ToString());
     }
 
@@ -73,6 +97,8 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         FindObjectOfType<AudioManager>().GetComponent<AudioEnabler>().findButtons();
+        if (menu == null)
+            menu = FindObjectOfType<GameMenu>();
 
         yield return new WaitForSeconds(0.8f);
         UpdateCountdown("2");
@@ -84,8 +110,8 @@ public class GameManager : MonoBehaviour
         menu.SetCountdownActive(false);
         
         spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
+        time = timeLimit;
         running = true;
-        time = 0;
 
         //SPAWN DOGS & SHEPARDS
         foreach (PlayerObject player in players)
@@ -95,8 +121,6 @@ public class GameManager : MonoBehaviour
 
             spawn.GetComponent<SpawnArea>().SetOwner(dog);
             dog.transform.parent = GameObject.Find("Dogs").transform;
-            //PlayerObject playerScript = dog.AddComponent<PlayerObject>();
-            //playerScript = player;
             dog.GetComponent<Dog>().SetPlayer(player);
 
             GameObject shepard = Instantiate(shepardPrefab, spawn.transform.position, spawn.transform.rotation);
@@ -127,6 +151,8 @@ public class GameManager : MonoBehaviour
 
     private void StopGame()
     {
+        color.a = 0f;
+        GameObject.Find("Timer").GetComponentInChildren<TextMeshProUGUI>().color = color;
         ChangePauseState(true);
 
         //int maxSheep = 0;
@@ -141,10 +167,5 @@ public class GameManager : MonoBehaviour
                 list.Add(spawn);
 
         menu.ShowResults(list);
-    }
-
-    public int GetTime()
-    {
-        return (int)time;
     }
 }

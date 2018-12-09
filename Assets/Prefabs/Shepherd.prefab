@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 58619104097819652}
   - component: {fileID: 70480252225285516}
   - component: {fileID: 114041157882319086}
+  - component: {fileID: 114638538152449728}
   m_Layer: 0
   m_Name: Shepherd
   m_TagString: Untagged
@@ -168,6 +169,7 @@ MonoBehaviour:
   stunTime: 1.5
   readyTime: 0.5
   hat: {fileID: 212310714169405876}
+  huh: {fileID: 114638538152449728}
 --- !u!114 &114435476196719172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,6 +181,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a647e5ec7891043a10fe95cf2f644d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114638538152449728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1234964923609154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21bbb1c9916fdf4a9a560de87cdcbe9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mintime: 3
+  maxtime: 12
 --- !u!212 &212062501172107664
 SpriteRenderer:
   m_ObjectHideFlags: 1

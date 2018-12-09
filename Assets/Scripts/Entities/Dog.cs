@@ -57,7 +57,9 @@ public class Dog : MonoBehaviour {
     }
     IEnumerator removeStun(float seconds)
     {
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSeconds(seconds / 4);
+        GetComponent<RandomWuffGenerator>().playRandomSound();
+        yield return new WaitForSeconds(3 * seconds/2);
         stunned = false;
         anim.SetBool("stunned", false);
     }

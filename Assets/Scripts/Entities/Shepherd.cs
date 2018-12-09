@@ -17,6 +17,8 @@ public class Shepherd : MonoBehaviour {
 
     public SpriteRenderer hat;
 
+    public RandomHuhGenerator huh;
+
 	// Use this for initialization
 	void Start () {
         readyTime += stunTime;
@@ -43,6 +45,7 @@ public class Shepherd : MonoBehaviour {
                 otherDogs.Clear();
                 ready = false;
                 anim.SetBool("attacking", true);
+                huh.PlaySweep();
                 StartCoroutine(MakeReady(readyTime));
             }
         }
@@ -61,6 +64,7 @@ public class Shepherd : MonoBehaviour {
             if (otherDogs.Count==0)
             {
                 timer = hitTime;
+                huh.playAngrySound();
             }
             otherDogs.Add(tempDog);
         }

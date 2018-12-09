@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RandomWuffGenerator : MonoBehaviour {
 
-    public float mintime = 3;
-    public float maxtime = 12;
+    public float mintime = 6;
+    public float maxtime = 18;
     int randomnumber;
     float time;
     bool countingDown;
@@ -34,7 +34,7 @@ public class RandomWuffGenerator : MonoBehaviour {
         }
     }
 
-    void playRandomSound() {
+    public void playRandomSound() {
         randomnumber = Random.Range(1, 6);
         FindObjectOfType<AudioManager>().Play("Dog " + randomnumber);
     }
