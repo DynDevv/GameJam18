@@ -84,6 +84,8 @@ public class GameMenu : MonoBehaviour {
             // spawn at correct height
             Vector3 pos = new Vector3(ResultPrefab.transform.position.x, height, ResultPrefab.transform.position.z);
             GameObject score = Instantiate(ResultPrefab, pos, ResultPrefab.transform.rotation);
+
+            //NULLPOINTER?
             score.transform.parent = gameObject.transform.Find("players").transform;
             height -= 100;
 
@@ -104,7 +106,7 @@ public class GameMenu : MonoBehaviour {
     private IEnumerator DelayedFindButtons()
     {
         yield return new WaitForSeconds(0.3f);
-        FindObjectOfType<AudioManager>().GetComponent<AudioEnabler>().findButtons();
+        FindObjectOfType<AudioEnabler>().findButtons();
     }
 
     public void QuitGame()

@@ -169,7 +169,6 @@ MonoBehaviour:
   stunTime: 1.5
   readyTime: 0.5
   hat: {fileID: 212310714169405876}
-  huh: {fileID: 114638538152449728}
 --- !u!114 &114435476196719172
 MonoBehaviour:
   m_ObjectHideFlags: 1
