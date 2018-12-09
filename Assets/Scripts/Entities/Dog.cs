@@ -51,6 +51,11 @@ public class Dog : MonoBehaviour {
         name = player.playerName.ToString();
     }
 
+    public PlayerObject GetPlayer()
+    {
+        return player;
+    }
+
     //Stun
     public void stun(float stunTime)
     {

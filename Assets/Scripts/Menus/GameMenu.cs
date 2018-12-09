@@ -10,6 +10,7 @@ public class GameMenu : MonoBehaviour {
     public AudioMixer audioMixer;
     public GameManager gameManager;
     public GameObject ResultPrefab;
+    public GameObject IngamePrefab;
 
     void Start()
     {
@@ -72,7 +73,21 @@ public class GameMenu : MonoBehaviour {
 
     public void ShowIngameUI(List<PlayerObject> players)
     {
-        //TODO
+        float height = IngamePrefab.transform.position.y;
+        foreach (PlayerObject p in players)
+        {
+            Debug.Log(p.playerName.ToString());
+            // spawn at correct height
+            Vector3 pos = new Vector3(IngamePrefab.transform.position.x, height, IngamePrefab.transform.position.z);
+            GameObject representation = Instantiate(IngamePrefab, pos, IngamePrefab.transform.rotation);
+
+            representation.transform.SetParent(gameObject.transform.Find("ingamePlayers").transform, false);
+            height -= 100;
+
+            // icon, name
+            representation.transform.Find("icon").GetComponent<Image>().sprite = p.icon;
+            representation.transform.Find("name").GetComponent<TextMeshProUGUI>().SetText(p.playerName.ToString());
+        }
     }
 
     public void ShowResults(List<SpawnArea> activeDogs)
@@ -80,26 +95,45 @@ public class GameMenu : MonoBehaviour {
         gameObject.transform.Find("pauseButton").gameObject.SetActive(false);
         gameObject.transform.Find("ResultsMenu").gameObject.SetActive(true);
 
-        // TODO sort
+        //sort
+        activeDogs.Sort((a,b) => b.GetSheep() - a.GetSheep());
+        //viewModel.Children.Sort((a, b) => String.Compare(a.Name, b.Name))
 
-        gameObject.transform.Find("players");
         float height = ResultPrefab.transform.position.y;
+        int rank = 1;
+        int currentScore = activeDogs[0].GetSheep();
+
         foreach (SpawnArea spawn in activeDogs)
         {
             // spawn at correct height
             Vector3 pos = new Vector3(ResultPrefab.transform.position.x, height, ResultPrefab.transform.position.z);
             GameObject score = Instantiate(ResultPrefab, pos, ResultPrefab.transform.rotation);
 
-            //NULLPOINTER?
-            score.transform.parent = gameObject.transform.Find("players").transform;
+            score.transform.SetParent(gameObject.transform.Find("scorePlayers").transform, false);
             height -= 100;
 
             // set rank, icon, name and score
-            //spawn.GetOwner().GetComponent<Dog>().GetPlayer();
-            //spawn.GetSheep();
-            //output e.g. 1. 1. 3.
+            PlayerObject p = spawn.GetOwner().GetComponent<Dog>().GetPlayer();
+            if (spawn.GetSheep() > currentScore)
+            {
+                rank++;
+                score.transform.Find("rank").GetComponent<TextMeshProUGUI>().SetText(rank + ".");
+            }
+            else
+            {
+                score.transform.Find("rank").GetComponent<TextMeshProUGUI>().SetText(rank + ".");
+                rank++;
+            }
+
+            score.transform.Find("icon").GetComponent<Image>().sprite = p.icon;
+            score.transform.Find("name").GetComponent<TextMeshProUGUI>().SetText(p.playerName.ToString());
+            string scoreText = "captured " + spawn.GetSheep() + " sheep";
+            score.transform.Find("score").GetComponent<TextMeshProUGUI>().SetText(scoreText);
+
         }
     }
+
+
 
     public void RestartGame()
     {
