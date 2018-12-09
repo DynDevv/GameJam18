@@ -408,11 +408,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1526446047}
-        m_MethodName: AssignKeyCode
-        m_Mode: 1
+        m_MethodName: AssignRightKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 162222186}
+          m_ObjectArgumentAssemblyTypeName: PlayerObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1174,6 +1174,7 @@ MonoBehaviour:
   playerName: 2
   icon: {fileID: 0}
   image: {fileID: 0}
+  hat: {fileID: 0}
 --- !u!1 &169017217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1231,7 @@ MonoBehaviour:
   playerName: 0
   icon: {fileID: 0}
   image: {fileID: 0}
+  hat: {fileID: 0}
 --- !u!1 &229814426
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,11 +1454,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1526446047}
-        m_MethodName: AssignKeyCode
-        m_Mode: 1
+        m_MethodName: AssignRightKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 701453892}
+          m_ObjectArgumentAssemblyTypeName: PlayerObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1939,11 +1941,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1526446047}
-        m_MethodName: AssignKeyCode
-        m_Mode: 1
+        m_MethodName: AssignRightKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 708851842}
+          m_ObjectArgumentAssemblyTypeName: PlayerObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3794,6 +3796,7 @@ MonoBehaviour:
   playerName: 3
   icon: {fileID: 0}
   image: {fileID: 0}
+  hat: {fileID: 0}
 --- !u!1 &703512145
 GameObject:
   m_ObjectHideFlags: 0
@@ -3941,6 +3944,7 @@ MonoBehaviour:
   playerName: 4
   icon: {fileID: 0}
   image: {fileID: 0}
+  hat: {fileID: 0}
 --- !u!1 &719449344
 GameObject:
   m_ObjectHideFlags: 0
@@ -4644,11 +4648,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1526446047}
-        m_MethodName: AssignKeyCode
-        m_Mode: 1
+        m_MethodName: AssignLeftKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1463431762}
+          m_ObjectArgumentAssemblyTypeName: PlayerObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5005,11 +5009,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1526446047}
-        m_MethodName: AssignKeyCode
-        m_Mode: 1
+        m_MethodName: AssignLeftKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 701453892}
+          m_ObjectArgumentAssemblyTypeName: PlayerObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5198,11 +5202,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1526446047}
-        m_MethodName: AssignKeyCode
-        m_Mode: 1
+        m_MethodName: AssignLeftKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 169017219}
+          m_ObjectArgumentAssemblyTypeName: PlayerObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5702,11 +5706,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1526446047}
-        m_MethodName: AssignKeyCode
-        m_Mode: 1
+        m_MethodName: AssignLeftKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1602000434}
+          m_ObjectArgumentAssemblyTypeName: PlayerObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6427,11 +6431,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1526446047}
-        m_MethodName: AssignKeyCode
-        m_Mode: 1
+        m_MethodName: AssignRightKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 169017219}
+          m_ObjectArgumentAssemblyTypeName: PlayerObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7341,11 +7345,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1526446047}
-        m_MethodName: AssignKeyCode
-        m_Mode: 1
+        m_MethodName: AssignLeftKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 708851842}
+          m_ObjectArgumentAssemblyTypeName: PlayerObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7691,6 +7695,7 @@ MonoBehaviour:
   playerName: 1
   icon: {fileID: 0}
   image: {fileID: 0}
+  hat: {fileID: 0}
 --- !u!1 &1471913031
 GameObject:
   m_ObjectHideFlags: 0
@@ -8404,6 +8409,7 @@ MonoBehaviour:
   playerName: 5
   icon: {fileID: 0}
   image: {fileID: 0}
+  hat: {fileID: 0}
 --- !u!1 &1603920167
 GameObject:
   m_ObjectHideFlags: 0
@@ -8481,11 +8487,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1526446047}
-        m_MethodName: AssignKeyCode
-        m_Mode: 1
+        m_MethodName: AssignRightKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1602000434}
+          m_ObjectArgumentAssemblyTypeName: PlayerObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10187,11 +10193,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1526446047}
-        m_MethodName: AssignKeyCode
-        m_Mode: 1
+        m_MethodName: AssignLeftKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 162222186}
+          m_ObjectArgumentAssemblyTypeName: PlayerObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10535,11 +10541,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1526446047}
-        m_MethodName: AssignKeyCode
-        m_Mode: 1
+        m_MethodName: AssignRightKey
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1463431762}
+          m_ObjectArgumentAssemblyTypeName: PlayerObject, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

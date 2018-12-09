@@ -10,6 +10,9 @@ public class SettingsMenu : MonoBehaviour {
     public GameManager gameManager;
     PlayerObject[] players;
     TextMeshProUGUI errorMessage;
+    private Event keyEvent;
+    private KeyCode newKey;
+    private bool waitingForKey;
 
     void Start()
     {
@@ -64,23 +67,14 @@ public class SettingsMenu : MonoBehaviour {
 
     #region KEYCODES
 
-    public void AssignKeyCode()
+    public void AssignLeftKey(PlayerObject player)
     {
-        StartCoroutine(WaitInput());
+        StartAssignment("left", player);
     }
 
-    public void AssignLeftKey()
+    public void AssignRightKey(PlayerObject player)
     {
-        //listen for input
-        //assign keycode to player
-        //change button text to key
-    }
-
-    public void AssignRightKey()
-    {
-        //listen for input
-        //assign keycode to player
-        //change button text to key
+        StartAssignment("right", player);
     }
 
     private void setLeftButtonText(PlayerObject p, string value)
@@ -93,18 +87,59 @@ public class SettingsMenu : MonoBehaviour {
         p.gameObject.transform.Find("rightButton").GetComponentInChildren<TextMeshProUGUI>().SetText(value);
     }
 
-    public static IEnumerator WaitInput()
+    //public static IEnumerator WaitInput()
+    //{
+    //    bool wait = true;
+    //    while (wait)
+    //    {
+    //        if (Input.anyKeyDown)
+    //        {
+    //            KeyCode pressed = (KeyCode)Enum.Parse(typeof(KeyCode), Input.inputString, true);
+    //            Debug.Log(pressed);
+    //            wait = false;
+    //        }
+    //        yield return null;
+    //    }
+    //}
+
+    private void OnGUI()
     {
-        bool wait = true;
-        while (wait)
+        keyEvent = Event.current;
+
+        if(keyEvent.isKey && waitingForKey)
         {
-            if (Input.anyKeyDown)
-            {
-                KeyCode pressed = (KeyCode)Enum.Parse(typeof(KeyCode), Input.inputString, true);
-                Debug.Log(pressed);
-                wait = false;
-            }
+            newKey = keyEvent.keyCode;
+            waitingForKey = false;
+        }
+    }
+
+    private void StartAssignment(string keyName, PlayerObject player)
+    {
+        if (!waitingForKey)
+            StartCoroutine(AssignKey(keyName, player));
+    }
+
+    private IEnumerator WaitForKey()
+    {
+        while (!keyEvent.isKey)
             yield return null;
+    }
+
+    private IEnumerator AssignKey(string keyName, PlayerObject player)
+    {
+        waitingForKey = true;
+        yield return WaitForKey();
+
+        switch (keyName)
+        {
+            case "left":
+                setLeftButtonText(player, newKey.ToString());
+                player.left = newKey;
+            break;
+            case "right":
+                setRightButtonText(player, newKey.ToString());
+                player.right = newKey;
+            break;
         }
     }
 
