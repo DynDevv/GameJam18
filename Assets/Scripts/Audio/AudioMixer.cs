@@ -69,43 +69,13 @@ public class AudioMixer : MonoBehaviour
         if (yesno == false)
         {
             WaitUp();
-            //StartCoroutine(Wait(mute, yesno, value =>
-            //{
-            //    Debug.Log(value.ToString());
-            //}));
         }
 
         if (yesno == true)
         {
             WaitDown();
-            //StartCoroutine(Wait(mute, yesno, value =>
-            //{
-            //    Debug.Log(value.ToString());
-            //}));
         }
     }
-
-    //    IEnumerator Wait(float a, bool up, Action<float> onComplete)
-    //    {
-    //        if (up == true)
-    //        {
-    //            a = a - 0.1f;
-    //            yield return new WaitForSeconds(0.1f);
-    //        }
-    //        if (up == false)
-    //        {
-    //            a = a + 0.1f;
-    //            yield return new WaitForSeconds(0.1f);
-    //        }
-    //        onComplete(a);
-    //    }
-
-    //IEnumerator Wait()
-    //{
-    //    //Debug.Log("Before Waiting 2 seconds");
-    //    yield return new WaitForSeconds(1);
-    //    //Debug.LogError("After Waiting 2 Seconds");
-    //}
 
     void WaitUp()
     {

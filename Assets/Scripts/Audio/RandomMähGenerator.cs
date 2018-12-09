@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RandomAudioGenerator : MonoBehaviour {
+public class RandomMähGenerator : MonoBehaviour {
 
     public float mintime = 3;
-    public float maxtime = 9;
+    public float maxtime = 12;
     int randomnumber;
     float time;
     bool countingDown;
