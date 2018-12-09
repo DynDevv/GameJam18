@@ -9,10 +9,10 @@ public class Dog : MonoBehaviour {
     public float rotation = 3;
 
     private Rigidbody2D body;
-    //private PlayerObject player;
     private bool stunned = false;
     private Animator anim;
     private GameObject costume;
+    //private PlayerObject player;
 
     //Power Ups
     private bool hasWool = false;
@@ -46,7 +46,8 @@ public class Dog : MonoBehaviour {
     {
         player = playerObject;
         name = player.playerName.ToString();
-    }*/
+    }
+    */
 
     //Stun
     public void stun(float stunTime)
