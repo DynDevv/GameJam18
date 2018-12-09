@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
             timer -= 1f;
 
             if ((int)time >= 0)
-                GameObject.Find("Timer").GetComponentInChildren<TextMeshProUGUI>().SetText(((int)time + 1).ToString());
+                GameObject.Find("Timer").GetComponent<TextMeshProUGUI>().SetText(((int)time + 1).ToString());
         }
     }
 
