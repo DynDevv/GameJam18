@@ -19,12 +19,10 @@ public class AudioEnabler : MonoBehaviour
     {
         buttons = GameObject.FindGameObjectsWithTag("Button");
         backbutton = GameObject.Find("backButton");
-        Debug.LogError(backbutton);
 
         foreach (GameObject b in buttons)
         {
             b.GetComponent<Button>().GetComponent<Button>().onClick.AddListener(PlayButtonSound);
-            Debug.LogError(b);
         }
 
         if (backbutton != null)
