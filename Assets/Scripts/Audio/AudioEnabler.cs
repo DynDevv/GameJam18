@@ -27,7 +27,10 @@ public class AudioEnabler : MonoBehaviour
             Debug.LogError(b);
         }
 
-        backbutton.GetComponent<Button>().GetComponent<Button>().onClick.AddListener(PlayBackSound);
+        if (backbutton != null)
+        {
+            backbutton.GetComponent<Button>().GetComponent<Button>().onClick.AddListener(PlayBackSound);
+        }
     }
 
     void PlayButtonSound()
