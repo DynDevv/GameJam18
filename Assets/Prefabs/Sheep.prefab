@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114373795358868220}
   - component: {fileID: 58381067231302378}
   - component: {fileID: 95237653376530556}
+  - component: {fileID: 114667947952339432}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Sheep
@@ -126,6 +127,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 5
   triggerRadius: 1
+--- !u!114 &114667947952339432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1405609447797002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e007e03fafe2c0542a19a5be8878a20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mintime: 5
+  maxtime: 15
 --- !u!212 &212753561380794226
 SpriteRenderer:
   m_ObjectHideFlags: 1
