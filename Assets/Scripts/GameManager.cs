@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Additive);
     }
 
     void Awake()
