@@ -27,14 +27,14 @@ public class SettingsMenu : MonoBehaviour {
             setRightButtonText(p, p.right.ToString());
             TogglePlayer(p);
 
-            Debug.Log(gameManager.GetPlayers().Count);
-            //NOT WORKING AFTER RESTART
             foreach (PlayerObject player in gameManager.GetPlayers())
             {
                 if (p.playerName == player.playerName)
                 {
-                    setLeftButtonText(p, player.left.ToString());
-                    setRightButtonText(p, player.right.ToString());
+                    p.left = player.left;
+                    p.right = player.right;
+                    setLeftButtonText(p, p.left.ToString());
+                    setRightButtonText(p, p.right.ToString());
                     p.gameObject.GetComponentInChildren<Toggle>().isOn = true;
                     TogglePlayer(p);
                 }
