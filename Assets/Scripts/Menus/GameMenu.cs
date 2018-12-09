@@ -109,10 +109,10 @@ public class GameMenu : MonoBehaviour {
             Vector3 pos = new Vector3(ResultPrefab.transform.position.x, height, ResultPrefab.transform.position.z);
             GameObject score = Instantiate(ResultPrefab, pos, ResultPrefab.transform.rotation);
 
-            score.transform.SetParent(gameObject.transform.Find("scorePlayers").transform, false);
+            score.transform.SetParent(gameObject.transform.Find("ResultsMenu").Find("scorePlayers").transform, false);
             height -= 100;
 
-            // set rank, icon, name and score
+            // set rank
             PlayerObject p = spawn.GetOwner().GetComponent<Dog>().GetPlayer();
             if (spawn.GetSheep() > currentScore)
             {
@@ -124,7 +124,9 @@ public class GameMenu : MonoBehaviour {
                 score.transform.Find("rank").GetComponent<TextMeshProUGUI>().SetText(rank + ".");
                 rank++;
             }
+            currentScore = spawn.GetSheep();
 
+            // icon, name and score
             score.transform.Find("icon").GetComponent<Image>().sprite = p.icon;
             score.transform.Find("name").GetComponent<TextMeshProUGUI>().SetText(p.playerName.ToString());
             string scoreText = "captured " + spawn.GetSheep() + " sheep";
