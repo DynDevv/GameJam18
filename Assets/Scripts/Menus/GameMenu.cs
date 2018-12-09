@@ -70,6 +70,11 @@ public class GameMenu : MonoBehaviour {
         gameObject.transform.Find("Countdown").GetComponentInChildren<TextMeshProUGUI>().SetText(value);
     }
 
+    public void ShowIngameUI(List<PlayerObject> players)
+    {
+        //TODO
+    }
+
     public void ShowResults(List<SpawnArea> activeDogs)
     {
         gameObject.transform.Find("pauseButton").gameObject.SetActive(false);
