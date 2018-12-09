@@ -17,12 +17,13 @@ public class PlayerObject : MonoBehaviour {
 
     public void Awake()
     {
-        string iconPath = playerName.ToString() + "_icon.png";
+        string iconPath = "Icons/" + playerName.ToString() + "_dog";
         string imagePath = "Dogs/" + playerName.ToString() + "_image";
         string hatPath = "Shepherd/" + playerName.ToString() + "_hat";
         icon = Resources.Load<Sprite>(iconPath);
         image = Resources.Load<Sprite>(imagePath);
         hat = Resources.Load<Sprite>(hatPath);
+        Debug.Log(icon);
     }
 
     //TODO Input.GetKeyDown(KeyCode.Space))
