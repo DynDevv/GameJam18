@@ -9,19 +9,21 @@ public class SpawnArea : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.isTrigger && other.gameObject.tag == "Sheep")
+        if (!other.isTrigger && other.gameObject.tag == "Sheep")
         {
             //Debug.Log(other.gameObject.name + " ENTER " + name);
             sheeps++;
+            other.GetComponent<Sheep>().MoveSoftly(transform.GetChild(0).position, true);
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.isTrigger && other.gameObject.tag == "Sheep")
+        if (!other.isTrigger && other.gameObject.tag == "Sheep")
         {
             //Debug.Log(other.gameObject.name + " EXIT " + name);
             sheeps--;
+            other.GetComponent<Sheep>().MoveSoftly(Vector3.zero, false);
         }
     }
 

@@ -17,7 +17,7 @@ public class PlayerObject : MonoBehaviour {
     public void Awake()
     {
         string iconPath = playerName.ToString() + "_icon.png";
-        string imagePath = playerName.ToString() + "_image.png";
+        string imagePath = "Dogs/" + playerName.ToString() + "_image";
         icon = Resources.Load<Sprite>(iconPath);
         image = Resources.Load<Sprite>(imagePath);
     }

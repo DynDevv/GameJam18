@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     private List<PlayerObject> players;
     private List<GameObject> spawns;
     private float time = 0;
-    private bool running = true;
+    private bool running = false;
+    private GameObject countdown;
 
     [Header("Gameplay Settings")]
     [Range(10, 30)]
@@ -17,6 +19,7 @@ public class GameManager : MonoBehaviour
     [Tooltip("Time in seconds")]
     public int timeLimit = 30;
 
+    public bool muted = false;
     public GameObject dogPrefab, sheepPrefab, shepardPrefab;
 
     void Awake()
@@ -27,13 +30,16 @@ public class GameManager : MonoBehaviour
 	
     void Update()
     {
-        time += Time.deltaTime;
+        if (running)
+        {
+            time += Time.deltaTime;
+
+            if (time >= timeLimit)
+                StopGame();
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
             ChangePauseState(!running);
-
-        if (running && time >= timeLimit)
-            StopGame();
     }
 
     public void StartGame(List<PlayerObject> playerList)
@@ -46,15 +52,31 @@ public class GameManager : MonoBehaviour
         else
             return;
 
-        StartCoroutine(InitAfterLoad());        
+        Time.timeScale = 1;
+        StartCoroutine(InitAfterDelay());        
     }
 
-    IEnumerator InitAfterLoad()
+    private void UpdateCountdown(string value)
     {
-        //DELAYED START WITH COUNTER?
+        if(countdown == null)
+            countdown = GameObject.Find("Countdown");
+
+        countdown.gameObject.transform.GetComponentInChildren<TextMeshProUGUI>().SetText(value.ToString());
+    }
+
+    IEnumerator InitAfterDelay()
+    {
+        yield return new WaitForSeconds(1.1f);
+        UpdateCountdown("2");
         yield return new WaitForSeconds(1f);
+        UpdateCountdown("1");
+        yield return new WaitForSeconds(1f);
+        UpdateCountdown("Start");
+        yield return new WaitForSeconds(0.3f);
+        countdown.SetActive(false);
 
         spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
+        running = true;
         time = 0;
 
         //SPAWN DOGS & SHEPARDS
@@ -69,6 +91,7 @@ public class GameManager : MonoBehaviour
 
             GameObject shepard = Instantiate(shepardPrefab, spawn.transform.position, spawn.transform.rotation);
             shepard.transform.parent = GameObject.Find("Shepards").transform;
+            shepard.GetComponent<Shepherd>().SetOwnDog(dog.GetComponent<Dog>());
 
             spawns.Remove(spawn);
         }
@@ -89,15 +112,17 @@ public class GameManager : MonoBehaviour
         running = !state;
         Time.timeScale = (running) ? 1 : 0;
     }
+
     private void StopGame()
     {
+        ChangePauseState(true);
         int maxSheep = 0;
 
         foreach (SpawnArea spawn in FindObjectsOfType<SpawnArea>())
             if (spawn.GetSheeps() > maxSheep)
                 maxSheep = spawn.GetSheeps();
 
-        Debug.Log("WINNER");
+        Debug.Log("RESULT");
         foreach (SpawnArea spawn in FindObjectsOfType<SpawnArea>())
             if (spawn.GetOwner() != null && spawn.GetSheeps() == maxSheep)
                 Debug.Log(spawn.GetOwner().name + ": " + spawn.GetSheeps());
