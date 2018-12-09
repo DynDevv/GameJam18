@@ -1656,7 +1656,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 0}
   gameManager: {fileID: 0}
-  ResultPrefab: {fileID: 0}
+  ResultPrefab: {fileID: 1397201461450106, guid: feeb683a078bc994fb8419dff93b3236,
+    type: 2}
 --- !u!1001 &648576173
 Prefab:
   m_ObjectHideFlags: 0

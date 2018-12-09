@@ -71,7 +71,10 @@ public class GameManager : MonoBehaviour
 
     IEnumerator InitAfterDelay()
     {
-        yield return new WaitForSeconds(1.1f);
+        yield return new WaitForSeconds(0.3f);
+        FindObjectOfType<AudioManager>().GetComponent<AudioEnabler>().findButtons();
+
+        yield return new WaitForSeconds(0.8f);
         UpdateCountdown("2");
         yield return new WaitForSeconds(1f);
         UpdateCountdown("1");
@@ -79,7 +82,7 @@ public class GameManager : MonoBehaviour
         UpdateCountdown("START");
         yield return new WaitForSeconds(0.3f);
         menu.SetCountdownActive(false);
-
+        
         spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
         running = true;
         time = 0;
