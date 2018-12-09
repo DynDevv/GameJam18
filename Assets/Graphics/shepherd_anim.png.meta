@@ -75,7 +75,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 8192
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -86,7 +86,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 8192
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -103,9 +103,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 9450
-        width: 417
-        height: 675
+        y: 1450
+        width: 675
+        height: 725
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,7 +113,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a32bd1df92b30854dbad440bd69003d0
+      spriteID: b04a86a2d40abe64cb5e0ae038b2fac9
       vertices: []
       indices: 
       edges: []
@@ -122,10 +122,10 @@ TextureImporter:
       name: shepherd_anim_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 8775
-        width: 417
-        height: 675
+        x: 675
+        y: 1450
+        width: 675
+        height: 725
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,7 +133,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f238bdd7718320b47abcdec3b0e23a93
+      spriteID: 7bc6271ee6355a6438187d6909a155d7
       vertices: []
       indices: 
       edges: []
@@ -142,10 +142,10 @@ TextureImporter:
       name: shepherd_anim_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 8100
-        width: 417
-        height: 675
+        x: 1350
+        y: 1450
+        width: 675
+        height: 725
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,7 +153,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37984452d3447b2439e746b4118ba869
+      spriteID: 746b71c9586d50b478508a7480423152
       vertices: []
       indices: 
       edges: []
@@ -162,10 +162,10 @@ TextureImporter:
       name: shepherd_anim_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 7425
-        width: 417
-        height: 675
+        x: 2025
+        y: 1450
+        width: 675
+        height: 725
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,7 +173,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9b2b46d491fb9c44a196be67076b42c
+      spriteID: e2dde94633c41de4081eb998bfd1958f
       vertices: []
       indices: 
       edges: []
@@ -183,9 +183,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 6750
-        width: 417
-        height: 675
+        y: 725
+        width: 675
+        height: 725
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,7 +193,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54619036556e3fd45ad11dcbcfc25ed7
+      spriteID: ffcd085387b38694da28f3a3d12eeba0
       vertices: []
       indices: 
       edges: []
@@ -202,10 +202,10 @@ TextureImporter:
       name: shepherd_anim_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 6075
-        width: 417
-        height: 675
+        x: 675
+        y: 725
+        width: 675
+        height: 725
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,7 +213,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5570d5c30cb1ee8489f47815923c3dee
+      spriteID: d4a1585c250398a439fb4db82c793c4a
       vertices: []
       indices: 
       edges: []
@@ -222,10 +222,10 @@ TextureImporter:
       name: shepherd_anim_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 5400
-        width: 417
-        height: 675
+        x: 1350
+        y: 725
+        width: 675
+        height: 725
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,7 +233,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a25b4b64284c0f449095e6c9ffd7a50
+      spriteID: 525e01488c5d58d47aaf3121ab1bd333
       vertices: []
       indices: 
       edges: []
@@ -242,10 +242,10 @@ TextureImporter:
       name: shepherd_anim_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 4725
-        width: 417
-        height: 675
+        x: 2025
+        y: 725
+        width: 675
+        height: 725
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,7 +253,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cc05cd02dc16b841978bea718f7c733
+      spriteID: 781fd9ce18c228841bccec2e91bd6f57
       vertices: []
       indices: 
       edges: []
@@ -263,9 +263,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 4050
-        width: 417
-        height: 675
+        y: 0
+        width: 675
+        height: 725
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -273,7 +273,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10dc8c1791ad0e142b8f69809acfc7de
+      spriteID: fceca0a8b038bff459d238d703ae3e3f
       vertices: []
       indices: 
       edges: []
@@ -282,10 +282,10 @@ TextureImporter:
       name: shepherd_anim_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3375
-        width: 417
-        height: 675
+        x: 675
+        y: 0
+        width: 675
+        height: 725
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,7 +293,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 409f095550fbcad409b3c40be8897d21
+      spriteID: 1e8359be7e6a4c94985f0b31322ae3ab
       vertices: []
       indices: 
       edges: []
@@ -302,90 +302,10 @@ TextureImporter:
       name: shepherd_anim_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2700
-        width: 417
-        height: 675
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab6cbc7eed50db14c878da6e9c2fef6e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shepherd_anim_11
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2025
-        width: 417
-        height: 675
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: db8874199a3c3b44e92b267b01784c6f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shepherd_anim_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1350
-        width: 417
-        height: 675
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e7cef25e46b6fb46b7cf12d0f4c7ef2
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shepherd_anim_13
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 675
-        width: 417
-        height: 675
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bd8b514b17156974393fbcfedb80208a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shepherd_anim_14
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 1350
         y: 0
-        width: 417
-        height: 675
+        width: 675
+        height: 725
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -393,7 +313,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 905631ea6c135034ba3942f5ba6ec567
+      spriteID: b0a5347a2a0a760498c52c3e7490f651
       vertices: []
       indices: 
       edges: []
