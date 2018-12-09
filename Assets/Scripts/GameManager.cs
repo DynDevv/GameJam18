@@ -29,6 +29,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Additive);
+        StartCoroutine(DelayedFindButtons());
+    }
+
+    private IEnumerator DelayedFindButtons()
+    {
+        yield return new WaitForSeconds(0.3f);
+        FindObjectOfType<AudioEnabler>().findButtons();
     }
 
     void Awake()

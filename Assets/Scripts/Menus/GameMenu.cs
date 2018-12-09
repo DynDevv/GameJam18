@@ -98,8 +98,8 @@ public class GameMenu : MonoBehaviour {
 
     public void RestartGame()
     {
-        SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("Game");
+        SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Additive);
         StartCoroutine(DelayedFindButtons());
     }
 
