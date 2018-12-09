@@ -35,9 +35,9 @@ public class Dog : MonoBehaviour {
             return;
         
         body.velocity = transform.right * speed;
-        if (Input.GetKey("a"))
+        if (Input.GetKey(player.left))
             body.rotation += rotation;
-        if (Input.GetKey("d"))
+        if (Input.GetKey(player.right))
             body.rotation -= rotation;
 	}
 
