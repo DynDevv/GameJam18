@@ -53,9 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821d37413a186bd4697e647ea0c733d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AmbientVolume: 0
-  MusicVolume: 0
-  FXVolume: 0
+  AmbientVolume: 0.5
+  MusicVolume: 0.5
+  FXVolume: 0.5
 --- !u!114 &114353870163650108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,6 +188,66 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - name: Happy 01
+    type: 2
+    audio: {fileID: 8300000, guid: b7508118dd9d40248b92fccce12f93cd, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Happy 02
+    type: 2
+    audio: {fileID: 8300000, guid: d5ca39de0268dfa4b8f4f01e028fb541, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Happy 03
+    type: 2
+    audio: {fileID: 8300000, guid: b3adac1e8b1668247ab6c5be9935d271, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Happy 04
+    type: 2
+    audio: {fileID: 8300000, guid: bef23a138f70a6b46bbba3190f0acaba, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Angry 01
+    type: 2
+    audio: {fileID: 8300000, guid: 3a58a5446cb9bdb48aa69217943c06ef, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Angry 02
+    type: 2
+    audio: {fileID: 8300000, guid: 123a1cc4793cf944582681fa2c22e4e8, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Angry 03
+    type: 2
+    audio: {fileID: 8300000, guid: 00642b8785c2a9642a638acfda89bf72, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Angry 04
+    type: 2
+    audio: {fileID: 8300000, guid: 13e24898c67fd564b945f944dc9e89af, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dog 5
+    type: 2
+    audio: {fileID: 8300000, guid: 879b95f981e6c5341b8d872b28a9bca3, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dog 5
+    type: 2
+    audio: {fileID: 8300000, guid: 90e05d3a958009f40882de0326212563, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!114 &114362924149927884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -199,3 +259,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f76cae685ddd714da71deeefa361b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttons: []
+  backbutton: {fileID: 0}

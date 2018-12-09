@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RandomMähGenerator : MonoBehaviour {
 
-    public float mintime = 3;
-    public float maxtime = 12;
+    public float mintime = 10;
+    public float maxtime = 30;
     int randomnumber;
     float time;
     bool countingDown;
