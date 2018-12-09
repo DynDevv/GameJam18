@@ -17,12 +17,13 @@ public class Shepherd : MonoBehaviour {
 
     public SpriteRenderer hat;
 
-    public RandomHuhGenerator huh;
+    private RandomHuhGenerator huh;
 
 	// Use this for initialization
 	void Start () {
         readyTime += stunTime;
         anim = GetComponentInChildren<Animator>();
+        huh = GetComponent<RandomHuhGenerator>();
 	}
 	
 	// Update is called once per frame

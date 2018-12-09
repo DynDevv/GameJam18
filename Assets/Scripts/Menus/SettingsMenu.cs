@@ -30,6 +30,7 @@ public class SettingsMenu : MonoBehaviour {
         }
     }
 
+    //TODO
     public void PlayGame () {
         List<PlayerObject> playerList = new List<PlayerObject>();
         bool error = false;
