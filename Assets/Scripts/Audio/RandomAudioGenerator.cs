@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class RandomAudioGenerator : MonoBehaviour {
 
-    public float mintime = 1;
-    public float maxtime = 2;
+    public float mintime = 2;
+    public float maxtime = 5;
     int randomnumber;
     float time;
     bool countingDown;
@@ -36,8 +36,8 @@ public class RandomAudioGenerator : MonoBehaviour {
     }
 
     void playRandomSound() {
-        randomnumber = Random.Range(0, 12);
-        FindObjectOfType<AudioManager>().Play("Mäh " + randomnumber);
-        Debug.Log("Mäh " + randomnumber);
+        randomnumber = Random.Range(1, 12);
+        FindObjectOfType<AudioManager>().Play("Mäh " + randomnumber.ToString("00"));
+        Debug.LogError("Mäh " + randomnumber.ToString("00"));
     }
 }
