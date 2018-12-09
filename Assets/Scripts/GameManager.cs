@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     private List<GameObject> spawns;
     private float time = 0;
     private bool running = false;
-    private GameObject countdown;
+    private GameMenu menu;
 
     [Header("Gameplay Settings")]
     [Range(10, 30)]
@@ -58,10 +58,10 @@ public class GameManager : MonoBehaviour
 
     private void UpdateCountdown(string value)
     {
-        if(countdown == null)
-            countdown = GameObject.Find("Countdown");
+        if (menu == null)
+            menu = FindObjectOfType<GameMenu>();
 
-        countdown.gameObject.transform.GetComponentInChildren<TextMeshProUGUI>().SetText(value.ToString());
+        menu.SetCountdownText(value.ToString());
     }
 
     IEnumerator InitAfterDelay()
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         UpdateCountdown("Start");
         yield return new WaitForSeconds(0.3f);
-        countdown.SetActive(false);
+        menu.SetCountdownActive(false);
 
         spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
         running = true;
@@ -87,7 +87,9 @@ public class GameManager : MonoBehaviour
 
             spawn.GetComponent<SpawnArea>().SetOwner(dog);
             dog.transform.parent = GameObject.Find("Dogs").transform;
-            dog.GetComponent<Dog>().SetPlayer(player);
+            PlayerObject playerScript = dog.AddComponent<PlayerObject>();
+            playerScript = player;
+            //dog.GetComponent<Dog>().SetPlayer(player);
 
             GameObject shepard = Instantiate(shepardPrefab, spawn.transform.position, spawn.transform.rotation);
             shepard.transform.parent = GameObject.Find("Shepards").transform;
@@ -116,16 +118,13 @@ public class GameManager : MonoBehaviour
     private void StopGame()
     {
         ChangePauseState(true);
-        int maxSheep = 0;
 
-        foreach (SpawnArea spawn in FindObjectsOfType<SpawnArea>())
-            if (spawn.GetSheeps() > maxSheep)
-                maxSheep = spawn.GetSheeps();
+        //int maxSheep = 0;
+        //foreach (SpawnArea spawn in FindObjectsOfType<SpawnArea>())
+        //    if (spawn.GetSheeps() > maxSheep)
+        //        maxSheep = spawn.GetSheeps();
 
-        Debug.Log("RESULT");
-        foreach (SpawnArea spawn in FindObjectsOfType<SpawnArea>())
-            if (spawn.GetOwner() != null && spawn.GetSheeps() == maxSheep)
-                Debug.Log(spawn.GetOwner().name + ": " + spawn.GetSheeps());
+        menu.ShowResults(FindObjectsOfType<SpawnArea>());
     }
 
     public int GetTime()

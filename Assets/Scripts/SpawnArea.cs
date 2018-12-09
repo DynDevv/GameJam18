@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnArea : MonoBehaviour
 {
-    private int sheeps = 0;
+    private int sheep = 0;
     private GameObject owner = null;
 
     void OnTriggerEnter2D(Collider2D other)
@@ -12,7 +12,7 @@ public class SpawnArea : MonoBehaviour
         if (!other.isTrigger && other.gameObject.tag == "Sheep")
         {
             //Debug.Log(other.gameObject.name + " ENTER " + name);
-            sheeps++;
+            sheep++;
             other.GetComponent<Sheep>().MoveSoftly(transform.GetChild(0).position, true);
         }
     }
@@ -22,7 +22,7 @@ public class SpawnArea : MonoBehaviour
         if (!other.isTrigger && other.gameObject.tag == "Sheep")
         {
             //Debug.Log(other.gameObject.name + " EXIT " + name);
-            sheeps--;
+            sheep--;
             other.GetComponent<Sheep>().MoveSoftly(Vector3.zero, false);
         }
     }
@@ -37,8 +37,8 @@ public class SpawnArea : MonoBehaviour
         return owner;
     }
 
-    public int GetSheeps()
+    public int GetSheep()
     {
-        return sheeps;
+        return sheep;
     }
 }

@@ -9,7 +9,7 @@ public class Dog : MonoBehaviour {
     public float rotation = 3;
 
     private Rigidbody2D body;
-    private PlayerObject player;
+    //private PlayerObject player;
     private bool stunned = false;
     private Animator anim;
     private GameObject costume;
@@ -25,7 +25,7 @@ public class Dog : MonoBehaviour {
         body.freezeRotation = true;
 
         anim = GetComponent<Animator>();
-        GetComponent<SpriteRenderer>().sprite = player.image;
+        GetComponent<SpriteRenderer>().sprite = GetComponent<PlayerObject>().image;
     }
 	
 	// Update is called once per frame
@@ -35,17 +35,18 @@ public class Dog : MonoBehaviour {
             return;
         
         body.velocity = transform.right * speed;
-        if (Input.GetKey(player.left))
+        if (Input.GetKey(GetComponent<PlayerObject>().left))
             body.rotation += rotation;
-        if (Input.GetKey(player.right))
+        if (Input.GetKey(GetComponent<PlayerObject>().right))
             body.rotation -= rotation;
 	}
 
+    /*
     public void SetPlayer(PlayerObject playerObject)
     {
         player = playerObject;
         name = player.playerName.ToString();
-    }
+    }*/
 
     //Stun
     public void stun(float stunTime)
