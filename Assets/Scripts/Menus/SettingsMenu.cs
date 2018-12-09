@@ -9,7 +9,7 @@ public class SettingsMenu : MonoBehaviour {
 
     public GameManager gameManager;
     PlayerObject[] players;
-    TextMeshProUGUI errorMessage;
+    public TextMeshProUGUI errorMessage;
     private Event keyEvent;
     private KeyCode newKey;
     private bool waitingForKey;
