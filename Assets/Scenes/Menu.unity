@@ -1170,8 +1170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
-  left: 0
-  right: 0
+  left: 102
+  right: 103
   playerName: 2
   icon: {fileID: 0}
   images: []
@@ -1228,7 +1228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 0
   left: 97
-  right: 100
+  right: 115
   playerName: 0
   icon: {fileID: 0}
   images: []
@@ -3865,8 +3865,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
-  left: 0
-  right: 0
+  left: 107
+  right: 108
   playerName: 3
   icon: {fileID: 0}
   images: []
@@ -4014,8 +4014,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
-  left: 0
-  right: 0
+  left: 49
+  right: 50
   playerName: 4
   icon: {fileID: 0}
   images: []
@@ -8599,8 +8599,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
-  left: 0
-  right: 0
+  left: 54
+  right: 55
   playerName: 5
   icon: {fileID: 0}
   images: []
