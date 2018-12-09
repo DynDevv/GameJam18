@@ -17,7 +17,7 @@ public class AudioMixer : MonoBehaviour
 
     private AudioManager audiomanager;
 
-    private int mute = 1;
+    private float mute = 1;
 
     private void Start()
     {
@@ -30,12 +30,12 @@ public class AudioMixer : MonoBehaviour
         {
             if (s.type == 0)
             {
-                s.volume = AmbientVolume * mute;
+                s.volume = AmbientVolume * 0.8f * mute;
             }
 
             if (s.type == 1)
             {
-                s.volume = MusicVolume * mute;
+                s.volume = MusicVolume * 0.7f * mute;
             }
 
             if (s.type == 2)
@@ -67,12 +67,15 @@ public class AudioMixer : MonoBehaviour
     {
         if (yesno == true)
         {
-            mute = 0;
+            mute = 1;
         }
 
         if (yesno == false)
         {
-            mute = 1;
+            for (int i = 0; i < 100000000; i++)
+            {
+                mute = 0;
+            }
         }
     }
 }
