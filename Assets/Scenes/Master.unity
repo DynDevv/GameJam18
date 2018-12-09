@@ -183,8 +183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c47663645289eb4a8adf3448c4b54c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheepLimit: 10
-  timeLimit: 30
+  sheepLimit: 40
+  timeLimit: 120
+  startTimer: 30
   muted: 0
   dogPrefab: {fileID: 1387097727274616, guid: 35b6818a22d9bfc489859c30b54585ea, type: 2}
   sheepPrefab: {fileID: 1405609447797002, guid: d27594d57d8479048b00989801bf28d3,
