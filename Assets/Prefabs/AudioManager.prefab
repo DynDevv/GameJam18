@@ -146,15 +146,45 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
-  - name: None
+  - name: Back Button
     type: 2
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: 7b722910f91cf68468e4f13f6a22962c, type: 3}
     volume: 1
     loop: 0
     source: {fileID: 0}
-  - name: None
+  - name: Normal Button
     type: 2
-    audio: {fileID: 0}
+    audio: {fileID: 8300000, guid: b280c1ee946b9244eb5c4b5070cdbe2a, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dog 1
+    type: 2
+    audio: {fileID: 8300000, guid: d0a7889192923cd458212f1133e831a0, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dog 2
+    type: 2
+    audio: {fileID: 8300000, guid: 02d2d3acf6f025d4185941e85151ce29, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dog 3
+    type: 2
+    audio: {fileID: 8300000, guid: 5314e3da10dce304182f136f1816a214, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dog 4
+    type: 2
+    audio: {fileID: 8300000, guid: 23fdec8baade0b04b90252bd3aa07b04, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Dog 5
+    type: 2
+    audio: {fileID: 8300000, guid: 90e05d3a958009f40882de0326212563, type: 3}
     volume: 1
     loop: 0
     source: {fileID: 0}

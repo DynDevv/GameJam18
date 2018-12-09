@@ -68,6 +68,8 @@ public class Dog : MonoBehaviour {
         hasWool = true;
         costume.transform.parent = transform;
         costume.transform.localPosition = Vector3.zero;
+        costume.transform.rotation = new Quaternion();
+        costume.GetComponent<SpriteRenderer>().enabled = true;
         this.costume = costume;
         StartCoroutine(RemoveWool(duration));
     }
