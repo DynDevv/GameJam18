@@ -23,7 +23,6 @@ public class PlayerObject : MonoBehaviour {
         icon = Resources.Load<Sprite>(iconPath);
         image = Resources.Load<Sprite>(imagePath);
         hat = Resources.Load<Sprite>(hatPath);
-        Debug.Log(icon);
     }
 
     //TODO Input.GetKeyDown(KeyCode.Space))
