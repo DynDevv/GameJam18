@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -65,17 +66,64 @@ public class AudioMixer : MonoBehaviour
 
     public void MuteAll(bool yesno)
     {
-        if (yesno == true)
-        {
-            mute = 1;
-        }
-
         if (yesno == false)
         {
-            for (int i = 0; i < 100000000; i++)
-            {
-                mute = 0;
-            }
+            WaitUp();
+            //StartCoroutine(Wait(mute, yesno, value =>
+            //{
+            //    Debug.Log(value.ToString());
+            //}));
         }
+
+        if (yesno == true)
+        {
+            WaitDown();
+            //StartCoroutine(Wait(mute, yesno, value =>
+            //{
+            //    Debug.Log(value.ToString());
+            //}));
+        }
+    }
+
+    //    IEnumerator Wait(float a, bool up, Action<float> onComplete)
+    //    {
+    //        if (up == true)
+    //        {
+    //            a = a - 0.1f;
+    //            yield return new WaitForSeconds(0.1f);
+    //        }
+    //        if (up == false)
+    //        {
+    //            a = a + 0.1f;
+    //            yield return new WaitForSeconds(0.1f);
+    //        }
+    //        onComplete(a);
+    //    }
+
+    //IEnumerator Wait()
+    //{
+    //    //Debug.Log("Before Waiting 2 seconds");
+    //    yield return new WaitForSeconds(1);
+    //    //Debug.LogError("After Waiting 2 Seconds");
+    //}
+
+    void WaitUp()
+    {
+        if (mute <= 1)
+        {
+            mute = mute + 0.1f;
+            Invoke("WaitUp", 0.05f);
+        }
+        return;
+    }
+
+    void WaitDown()
+    {
+        if (mute >= 0)
+        {
+            mute = mute - 0.1f;
+            Invoke("WaitDown", 0.05f);
+        }
+        return;
     }
 }
