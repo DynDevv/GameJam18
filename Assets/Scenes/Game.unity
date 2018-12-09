@@ -2840,6 +2840,7 @@ GameObject:
   - component: {fileID: 887523739}
   - component: {fileID: 887523738}
   - component: {fileID: 887523737}
+  - component: {fileID: 887523740}
   m_Layer: 5
   m_Name: resumeButton
   m_TagString: Button
@@ -2938,6 +2939,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 887523740}
+        m_MethodName: FindButtonsInstant
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &887523738
@@ -2974,6 +2986,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 887523735}
   m_CullTransparentMesh: 0
+--- !u!114 &887523740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 887523735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f76cae685ddd714da71deeefa361b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &966921465
 Prefab:
   m_ObjectHideFlags: 0
@@ -4340,6 +4363,7 @@ GameObject:
   - component: {fileID: 1536755478}
   - component: {fileID: 1536755477}
   - component: {fileID: 1536755476}
+  - component: {fileID: 1536755480}
   m_Layer: 5
   m_Name: pauseButton
   m_TagString: Button
@@ -4420,6 +4444,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1536755480}
+        m_MethodName: FindButtonsInstant
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1536755477
@@ -4474,6 +4509,17 @@ RectTransform:
   m_AnchoredPosition: {x: -905.8, y: -473}
   m_SizeDelta: {x: 34, y: 69.2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1536755480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1536755475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f76cae685ddd714da71deeefa361b91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1545877919
 GameObject:
   m_ObjectHideFlags: 0
