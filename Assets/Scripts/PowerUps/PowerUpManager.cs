@@ -30,7 +30,6 @@ public class PowerUpManager : MonoBehaviour {
 
             int rand1 = Random.Range(0, list.Count);
             int rand2 = Random.Range(0, locations.childCount);
-            Debug.Log(rand2);
             Transform tempTrans = locations.GetChild(rand2);
             GameObject tempUp = Instantiate(list[rand1],tempTrans.position, tempTrans.rotation);
             tempUp.GetComponent<PowerUp>().SetManager(this);

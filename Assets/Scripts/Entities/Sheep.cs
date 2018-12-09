@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ public class Sheep : MonoBehaviour {
     private Animator anim;
 
     private CircleCollider2D trigger;
+    private Vector3 targetPosition;
+    private bool inSpawner;
 
 	// Use this for initialization
 	void Start () {
@@ -21,12 +24,17 @@ public class Sheep : MonoBehaviour {
         trigger = GetComponent<CircleCollider2D>();
         trigger.radius = triggerRadius;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
+        
+        if (inSpawner)
+        {
+            body.AddForce((targetPosition - transform.position));
+        }
 
         anim.SetFloat("speed", body.velocity.magnitude);
-        if(body.velocity.magnitude > 0.5)
+        if(body.velocity.magnitude > 0.05)
         {
             float angle = Mathf.Atan2(body.velocity.y, body.velocity.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -45,7 +53,7 @@ public class Sheep : MonoBehaviour {
         {
             if (tempDog.IsSheep())
             {
-                body.AddForce((collision.transform.position - transform.position).normalized * force * 3);
+                body.AddForce((collision.transform.position - transform.position).normalized * force * 4);
             }
             else
             {
@@ -82,6 +90,12 @@ public class Sheep : MonoBehaviour {
             body.AddForce(Vector3.forward * force * force);
             //*/
         }
+    }
+
+    public void MoveSoftly(Vector3 target, bool entered)
+    {
+        targetPosition = target;
+        inSpawner = entered;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
