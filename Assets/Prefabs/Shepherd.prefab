@@ -166,8 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerRadius: 0.3
   hitTime: 0.5
-  stunTime: 1.5
-  readyTime: 0.75
+  stunTime: 1.25
+  readyTime: 1.75
   hat: {fileID: 212310714169405876}
 --- !u!114 &114435476196719172
 MonoBehaviour:

@@ -76,7 +76,6 @@ public class GameMenu : MonoBehaviour {
         float height = IngamePrefab.transform.position.y;
         foreach (PlayerObject p in players)
         {
-            Debug.Log(p.playerName.ToString());
             // spawn at correct height
             Vector3 pos = new Vector3(IngamePrefab.transform.position.x, height, IngamePrefab.transform.position.z);
             GameObject representation = Instantiate(IngamePrefab, pos, IngamePrefab.transform.rotation);
@@ -102,7 +101,7 @@ public class GameMenu : MonoBehaviour {
         float height = ResultPrefab.transform.position.y;
         int rank = 1;
         int currentScore = activeDogs[0].GetSheep();
-
+        int i = 0;
         foreach (SpawnArea spawn in activeDogs)
         {
             // spawn at correct height
@@ -114,15 +113,14 @@ public class GameMenu : MonoBehaviour {
 
             // set rank
             PlayerObject p = spawn.GetOwner().GetComponent<Dog>().GetPlayer();
-            if (spawn.GetSheep() > currentScore)
+            if (spawn.GetSheep() == currentScore)
             {
-                rank++;
                 score.transform.Find("rank").GetComponent<TextMeshProUGUI>().SetText(rank + ".");
             }
-            else
+            else if(spawn.GetSheep() < currentScore)
             {
-                score.transform.Find("rank").GetComponent<TextMeshProUGUI>().SetText(rank + ".");
-                rank++;
+                rank = i+1;
+                score.transform.Find("rank").GetComponent<TextMeshProUGUI>().SetText(i+1 + ".");
             }
             currentScore = spawn.GetSheep();
 
@@ -132,6 +130,7 @@ public class GameMenu : MonoBehaviour {
             string scoreText = "captured " + spawn.GetSheep() + " sheep";
             score.transform.Find("score").GetComponent<TextMeshProUGUI>().SetText(scoreText);
 
+            ++i;
         }
     }
 
