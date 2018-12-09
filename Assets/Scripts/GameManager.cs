@@ -109,7 +109,8 @@ public class GameManager : MonoBehaviour
         UpdateCountdown("START");
         yield return new WaitForSeconds(0.3f);
         menu.SetCountdownActive(false);
-        
+
+        spawns.Clear();
         spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
         menu.ShowIngameUI(players);
         time = timeLimit;
