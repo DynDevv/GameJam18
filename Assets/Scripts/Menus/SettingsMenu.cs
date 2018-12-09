@@ -59,7 +59,13 @@ public class SettingsMenu : MonoBehaviour {
         }
 
         if (!error && playerList.Count > 0)
+        {
             gameManager.StartGame(playerList);
+        } else
+        {
+            ShowSettingsErrorDialog("Choose at least one dog and be sure to assign all keys!");
+        }
+
     }
 
     public void ShowSettingsErrorDialog(string output)
