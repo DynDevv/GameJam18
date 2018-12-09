@@ -254,6 +254,66 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
+  - name: Angry 06
+    type: 2
+    audio: {fileID: 8300000, guid: 3f3fcf23855918a47b30d444280aa470, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Angry 07
+    type: 2
+    audio: {fileID: 8300000, guid: 8872a9b5985c9fc4ca9e9753b7a26cc0, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Natural 01
+    type: 2
+    audio: {fileID: 8300000, guid: 57a8f159d18a9264ca906979511fe9d7, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Natural 02
+    type: 2
+    audio: {fileID: 8300000, guid: 8e3b2782f85d0ac4bba4e9cb85b28f93, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Natural 03
+    type: 2
+    audio: {fileID: 8300000, guid: 0f5e7b8178c1b40458c38c1387c3984b, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Natural 04
+    type: 2
+    audio: {fileID: 8300000, guid: 6d7165b55cf52cb4cb43e05a9ef7f4b4, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Natural 05
+    type: 2
+    audio: {fileID: 8300000, guid: 3c0c455c5e8424349a4d54e95dbaaf93, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Natural 06
+    type: 2
+    audio: {fileID: 8300000, guid: 08b3b1c77fbaf7f44a053eb7e4e7c042, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Natural 07
+    type: 2
+    audio: {fileID: 8300000, guid: d078001113405fd45a64ed6ea3e51f57, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Natural 08
+    type: 2
+    audio: {fileID: 8300000, guid: 0f76e76eb2164ee4b83c2f65a187262c, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!114 &114362924149927884
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -2886,7 +2886,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 887523740}
-        m_MethodName: FindButtonsInstant
+        m_MethodName: FindButtons
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2940,7 +2940,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 887523735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f76cae685ddd714da71deeefa361b91, type: 3}
+  m_Script: {fileID: 11500000, guid: 70184e35c3ef0f84498eea542af53c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &966921465
@@ -4334,7 +4334,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1536755480}
-        m_MethodName: FindButtonsInstant
+        m_MethodName: FindButtons
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4406,7 +4406,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1536755475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f76cae685ddd714da71deeefa361b91, type: 3}
+  m_Script: {fileID: 11500000, guid: 70184e35c3ef0f84498eea542af53c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1545877919
@@ -4944,6 +4944,7 @@ GameObject:
   - component: {fileID: 1653289545}
   - component: {fileID: 1653289544}
   - component: {fileID: 1653289543}
+  - component: {fileID: 1653289546}
   m_Layer: 5
   m_Name: restartButton
   m_TagString: Button
@@ -5021,6 +5022,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1653289546}
+        m_MethodName: FindButtons
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1653289544
@@ -5057,6 +5069,17 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1653289541}
   m_CullTransparentMesh: 0
+--- !u!114 &1653289546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1653289541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70184e35c3ef0f84498eea542af53c19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1654159503 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4132830334462894, guid: f96091d3a15a8844c838e65f21608615,
