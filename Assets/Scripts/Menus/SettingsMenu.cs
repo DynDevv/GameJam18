@@ -16,10 +16,9 @@ public class SettingsMenu : MonoBehaviour {
 
     void Start()
     {
-        //TODO ev load new scene with playerlist from gameManager if given
-
         gameManager = FindObjectOfType<GameManager>();
         players = gameObject.GetComponentsInChildren<PlayerObject>();
+
         foreach(PlayerObject p in players)
         {
             p.gameObject.transform.Find("name").GetComponent<TextMeshProUGUI>().SetText(p.playerName.ToString());
@@ -27,39 +26,40 @@ public class SettingsMenu : MonoBehaviour {
             setLeftButtonText(p, p.left.ToString());
             setRightButtonText(p, p.right.ToString());
             TogglePlayer(p);
-        }
-    }
 
-    //TODO
-    public void PlayGame () {
-        List<PlayerObject> playerList = new List<PlayerObject>();
-        bool error = false;
-        
-        foreach (PlayerObject p in players)
-        {
-            if (p.active)
+            //NOT WORKING AFTER RESTART
+            foreach (PlayerObject player in gameManager.GetPlayers())
             {
-                if (p.left != null && p.right != null)
+                if (p.playerName == player.playerName)
                 {
-                    playerList.Add(p);
-                }
-                else
-                {
-                    error = true;
-                    break;
+                    setLeftButtonText(p, player.left.ToString());
+                    setRightButtonText(p, player.right.ToString());
+                    p.gameObject.GetComponentInChildren<Toggle>().isOn = true;
+                    TogglePlayer(p);
                 }
             }
         }
+    }
 
-        /*if (error || playerList.Count <= 0)
+    public void PlayGame ()
+    {
+        List<PlayerObject> playerList = new List<PlayerObject>();
+        bool error = false;
+        
+        foreach (PlayerObject p in gameObject.GetComponentsInChildren<PlayerObject>())
         {
-            ShowSettingsErrorDialog("Choose at least 1 Player and be sure to assign your controls.");
+            if (p.active)
+            {
+                if (p.left != KeyCode.None && p.right != KeyCode.None)
+                    playerList.Add(p);
+                else
+                    error = true;
+            }
         }
-        else*/
-        {
+
+        if (!error && playerList.Count > 0)
             gameManager.StartGame(playerList);
-        }
-	}
+    }
 
     public void ShowSettingsErrorDialog(string output)
     {

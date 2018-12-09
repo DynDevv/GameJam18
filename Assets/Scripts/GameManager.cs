@@ -169,4 +169,9 @@ public class GameManager : MonoBehaviour
 
         menu.ShowResults(list);
     }
+
+    public List<PlayerObject> GetPlayers()
+    {
+        return players;
+    }
 }
