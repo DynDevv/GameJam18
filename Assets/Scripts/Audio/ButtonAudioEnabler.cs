@@ -13,7 +13,6 @@ public class ButtonAudioEnabler : MonoBehaviour {
 
         foreach (GameObject b in buttons)
         {
-            Debug.LogError(b.name);
             b.GetComponent<Button>().onClick.AddListener(PlayButtonSound);
         }
     }
