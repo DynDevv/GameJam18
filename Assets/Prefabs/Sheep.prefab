@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e007e03fafe2c0542a19a5be8878a20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mintime: 5
-  maxtime: 15
+  mintime: 10
+  maxtime: 30
 --- !u!212 &212753561380794226
 SpriteRenderer:
   m_ObjectHideFlags: 1

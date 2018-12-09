@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
     IEnumerator InitAfterDelay()
     {
         yield return new WaitForSeconds(0.3f);
-        FindObjectOfType<AudioManager>().GetComponent<AudioEnabler>().findButtons();
+        FindObjectOfType<AudioEnabler>().findButtons();
         if (menu == null)
             menu = FindObjectOfType<GameMenu>();
 
@@ -153,6 +153,7 @@ public class GameManager : MonoBehaviour
     {
         color.a = 0f;
         GameObject.Find("Timer").GetComponentInChildren<TextMeshProUGUI>().color = color;
+        FindObjectOfType<RandomHuhGenerator>().playHappySound();
         ChangePauseState(true);
 
         //int maxSheep = 0;
