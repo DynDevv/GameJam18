@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         if (color.a == 0f && time <= startTimer)
         {
             color.a = 1f;
-            GameObject.Find("Timer").GetComponentInChildren<TextMeshProUGUI>().color = color;
+            GameObject.Find("Timer").GetComponent<TextMeshProUGUI>().color = color;
         }
 
         if(timer >= 1f)
@@ -154,7 +154,7 @@ public class GameManager : MonoBehaviour
     private void StopGame()
     {
         color.a = 0f;
-        GameObject.Find("Timer").GetComponentInChildren<TextMeshProUGUI>().color = color;
+        GameObject.Find("Timer").GetComponent<TextMeshProUGUI>().color = color;
         FindObjectOfType<RandomHuhGenerator>().playHappySound();
         ChangePauseState(true);
 
