@@ -124,7 +124,13 @@ public class GameManager : MonoBehaviour
         //    if (spawn.GetSheeps() > maxSheep)
         //        maxSheep = spawn.GetSheeps();
 
-        menu.ShowResults(FindObjectsOfType<SpawnArea>());
+        List<SpawnArea> list = new List<SpawnArea>();
+
+        foreach (SpawnArea spawn in FindObjectsOfType<SpawnArea>())
+            if (spawn.GetOwner() != null)
+                list.Add(spawn);
+
+        menu.ShowResults(list);
     }
 
     public int GetTime()
