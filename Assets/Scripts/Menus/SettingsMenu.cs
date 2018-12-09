@@ -9,6 +9,7 @@ public class SettingsMenu : MonoBehaviour {
 
     public GameManager gameManager;
     PlayerObject[] players;
+    TextMeshProUGUI errorMessage;
 
     void Start()
     {
@@ -20,6 +21,8 @@ public class SettingsMenu : MonoBehaviour {
         {
             p.gameObject.transform.Find("name").GetComponent<TextMeshProUGUI>().SetText(p.playerName.ToString());
             p.gameObject.transform.Find("icon").GetComponent<Image>().sprite = p.icon;
+            setLeftButtonText(p, p.left.ToString());
+            setRightButtonText(p, p.right.ToString());
             TogglePlayer(p);
         }
     }
@@ -46,7 +49,7 @@ public class SettingsMenu : MonoBehaviour {
 
         /*if (error || playerList.Count <= 0)
         {
-            ShowSettingsErrorDialog();
+            ShowSettingsErrorDialog("Choose at least 1 Player and be sure to assign your controls.");
         }
         else*/
         {
@@ -54,17 +57,60 @@ public class SettingsMenu : MonoBehaviour {
         }
 	}
 
-    public void ShowSettingsErrorDialog()
+    public void ShowSettingsErrorDialog(string output)
     {
-        Debug.Log("Settings Error! Choose at least 1 Player and be sure to assign your controls.");
+        errorMessage.SetText(output);
     }
 
+    #region KEYCODES
+
     public void AssignKeyCode()
+    {
+        StartCoroutine(WaitInput());
+    }
+
+    public void AssignLeftKey()
     {
         //listen for input
         //assign keycode to player
         //change button text to key
     }
+
+    public void AssignRightKey()
+    {
+        //listen for input
+        //assign keycode to player
+        //change button text to key
+    }
+
+    private void setLeftButtonText(PlayerObject p, string value)
+    {
+        p.gameObject.transform.Find("leftButton").GetComponentInChildren<TextMeshProUGUI>().SetText(value);
+    }
+
+    private void setRightButtonText(PlayerObject p, string value)
+    {
+        p.gameObject.transform.Find("rightButton").GetComponentInChildren<TextMeshProUGUI>().SetText(value);
+    }
+
+    public static IEnumerator WaitInput()
+    {
+        bool wait = true;
+        while (wait)
+        {
+            if (Input.anyKeyDown)
+            {
+                KeyCode pressed = (KeyCode)Enum.Parse(typeof(KeyCode), Input.inputString, true);
+                Debug.Log(pressed);
+                wait = false;
+            }
+            yield return null;
+        }
+    }
+
+    #endregion
+
+    #region TOGGLE PLAYER
 
     public void TogglePlayer(PlayerObject player)
     {
@@ -110,17 +156,22 @@ public class SettingsMenu : MonoBehaviour {
         text.color = tempColor;
     }
 
+    #endregion
+
+    #region SLIDER
+
     public void AdjustTimeSlider(GameObject Time)
     {
         //read slider value
         Slider slider = Time.GetComponentInChildren<Slider>();
+        int seconds = 30 + ((int)slider.value * 5);
 
         //output as min and sec to value text
-        string text = System.Math.Floor(slider.value / 60) + " min " + slider.value % 60 + " sec";
+        string text = System.Math.Floor(seconds / 60f) + " min " + seconds % 60 + " sec";
         Time.transform.Find("Value").GetComponent<TextMeshProUGUI>().SetText(text);
 
         //change in settings
-        gameManager.timeLimit = ((int)slider.value);
+        gameManager.timeLimit = (seconds);
     }
 
     public void AdjustHerdSlider(GameObject Herd)
@@ -134,4 +185,6 @@ public class SettingsMenu : MonoBehaviour {
         //change in settings
         gameManager.sheepLimit = ((int)slider.value);
     }
+
+    #endregion
 }

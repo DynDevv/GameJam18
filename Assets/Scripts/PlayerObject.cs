@@ -7,7 +7,7 @@ public class PlayerObject : MonoBehaviour {
     public KeyCode left;
     public KeyCode right;
 
-    public enum dogName { Fluffy, Fuzzy, Soft, Cuddly, Fleecy, Dog };
+    public enum dogName { Fluffy, Cuddly, Fuzzy, Soft, Fleecy, Dog };
     public dogName playerName;
     //public string playerName;
 

@@ -1225,8 +1225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
-  left: 0
-  right: 0
+  left: 97
+  right: 100
   playerName: 0
   icon: {fileID: 0}
   image: {fileID: 0}
@@ -2785,7 +2785,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 1 min 9 sec
+  m_text: 2 min 0 sec
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4abf46d9dac537b4687defbe9c7eda06, type: 2}
   m_sharedMaterial: {fileID: 21287067625691948, guid: 4abf46d9dac537b4687defbe9c7eda06,
@@ -3390,6 +3390,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 0}
+  gameManager: {fileID: 0}
+  muteButton: {fileID: 779310317}
+  unmuteButton: {fileID: 229814426}
 --- !u!1 &657611311
 GameObject:
   m_ObjectHideFlags: 0
@@ -3881,7 +3884,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &708851840
 GameObject:
   m_ObjectHideFlags: 0
@@ -4330,10 +4333,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1472866807}
   m_HandleRect: {fileID: 634028485}
   m_Direction: 0
-  m_MinValue: 30
-  m_MaxValue: 300
+  m_MinValue: 0
+  m_MaxValue: 50
   m_WholeNumbers: 1
-  m_Value: 69
+  m_Value: 18
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -4854,7 +4857,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 0
+  m_IsOn: 1
 --- !u!1 &850616479
 GameObject:
   m_ObjectHideFlags: 0
@@ -7683,8 +7686,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
-  left: 0
-  right: 0
+  left: 276
+  right: 275
   playerName: 1
   icon: {fileID: 0}
   image: {fileID: 0}
