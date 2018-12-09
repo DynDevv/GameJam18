@@ -15,10 +15,12 @@ public class Shepherd : MonoBehaviour {
     private bool ready = true;
     private Animator anim;
 
+    public SpriteRenderer hat;
+
 	// Use this for initialization
 	void Start () {
         readyTime += stunTime;
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -73,19 +75,14 @@ public class Shepherd : MonoBehaviour {
         }
     }
 
-    private void DisableAttacking()
-    {
-        anim.SetBool("attacking", false);
-    }
-
     IEnumerator MakeReady(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         ready = true;
     }
 
-    public void SetHat()
+    public void SetHat(Sprite newHat)
     {
-
+        hat.sprite = newHat;
     }
 }

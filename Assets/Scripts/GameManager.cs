@@ -22,6 +22,11 @@ public class GameManager : MonoBehaviour
     public bool muted = false;
     public GameObject dogPrefab, sheepPrefab, shepardPrefab;
 
+    void Start()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     void Awake()
     {
         spawns = new List<GameObject>();
@@ -71,7 +76,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         UpdateCountdown("1");
         yield return new WaitForSeconds(1f);
-        UpdateCountdown("Start");
+        UpdateCountdown("START");
         yield return new WaitForSeconds(0.3f);
         menu.SetCountdownActive(false);
 
@@ -87,14 +92,16 @@ public class GameManager : MonoBehaviour
 
             spawn.GetComponent<SpawnArea>().SetOwner(dog);
             dog.transform.parent = GameObject.Find("Dogs").transform;
-            PlayerObject playerScript = dog.AddComponent<PlayerObject>();
-            playerScript = player;
-            //dog.GetComponent<Dog>().SetPlayer(player);
+            //PlayerObject playerScript = dog.AddComponent<PlayerObject>();
+            //playerScript = player;
+            dog.GetComponent<Dog>().SetPlayer(player);
 
             GameObject shepard = Instantiate(shepardPrefab, spawn.transform.position, spawn.transform.rotation);
             shepard.transform.parent = GameObject.Find("Shepards").transform;
-            shepard.GetComponent<Shepherd>().SetOwnDog(dog.GetComponent<Dog>());
+            shepard.GetComponentInChildren<Shepherd>().SetOwnDog(dog.GetComponent<Dog>());
+            shepard.GetComponentInChildren<Shepherd>().SetHat(player.hat);
 
+            shepard.transform.Rotate(new Vector3(0, 0, 1), 180);
             spawns.Remove(spawn);
         }
 
