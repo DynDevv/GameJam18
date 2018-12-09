@@ -1174,7 +1174,7 @@ MonoBehaviour:
   right: 0
   playerName: 2
   icon: {fileID: 0}
-  image: {fileID: 0}
+  images: []
   hat: {fileID: 0}
 --- !u!1 &169017217
 GameObject:
@@ -1231,7 +1231,7 @@ MonoBehaviour:
   right: 100
   playerName: 0
   icon: {fileID: 0}
-  image: {fileID: 0}
+  images: []
   hat: {fileID: 0}
 --- !u!1 &216537554
 GameObject:
@@ -1296,7 +1296,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 684234375}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3445,7 +3445,7 @@ RectTransform:
   - {fileID: 1129491741}
   - {fileID: 1596065276}
   m_Father: {fileID: 684234375}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3801,6 +3801,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1734584020}
+  - {fileID: 783861510}
   - {fileID: 779310318}
   - {fileID: 229814427}
   - {fileID: 650806730}
@@ -3868,7 +3869,7 @@ MonoBehaviour:
   right: 0
   playerName: 3
   icon: {fileID: 0}
-  image: {fileID: 0}
+  images: []
   hat: {fileID: 0}
 --- !u!1 &703512145
 GameObject:
@@ -4017,7 +4018,7 @@ MonoBehaviour:
   right: 0
   playerName: 4
   icon: {fileID: 0}
-  image: {fileID: 0}
+  images: []
   hat: {fileID: 0}
 --- !u!1 &719449344
 GameObject:
@@ -4365,7 +4366,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 684234375}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4480,6 +4481,75 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 779310317}
+  m_CullTransparentMesh: 0
+--- !u!1 &783861509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783861510}
+  - component: {fileID: 783861512}
+  - component: {fileID: 783861511}
+  m_Layer: 5
+  m_Name: overlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &783861510
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 783861509}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.99998903, y: 0.99998903, z: 0.99998903}
+  m_Children: []
+  m_Father: {fileID: 684234375}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &783861511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 783861509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.07058824}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &783861512
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 783861509}
   m_CullTransparentMesh: 0
 --- !u!1 &814189403
 GameObject:
@@ -7648,7 +7718,7 @@ MonoBehaviour:
   right: 275
   playerName: 1
   icon: {fileID: 0}
-  image: {fileID: 0}
+  images: []
   hat: {fileID: 0}
 --- !u!1 &1471913031
 GameObject:
@@ -7906,7 +7976,7 @@ RectTransform:
   - {fileID: 70615308}
   - {fileID: 1239443727}
   m_Father: {fileID: 684234375}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8329,7 +8399,7 @@ MonoBehaviour:
   right: 0
   playerName: 5
   icon: {fileID: 0}
-  image: {fileID: 0}
+  images: []
   hat: {fileID: 0}
 --- !u!1 &1603920167
 GameObject:
