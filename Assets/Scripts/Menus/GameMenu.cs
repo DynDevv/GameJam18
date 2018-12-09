@@ -100,7 +100,7 @@ public class GameMenu : MonoBehaviour {
     {
         SceneManager.UnloadSceneAsync("Game");
         SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Additive);
-        FindObjectOfType<AudioEnabler>().findButtons();
+        FindObjectOfType<AudioEnabler>().FindButtons();
     }
 
     public void QuitGame()

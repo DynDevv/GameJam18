@@ -9,6 +9,7 @@ TagManager:
   - Sheep
   - Spawn
   - Button
+  - AudioManager
   layers:
   - Default
   - TransparentFX

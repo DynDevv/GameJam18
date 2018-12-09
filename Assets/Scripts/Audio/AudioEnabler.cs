@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class AudioEnabler : MonoBehaviour
 {
 
-    public GameObject[] buttons;
-    public GameObject backbutton;
+    private GameObject[] buttons;
+    private GameObject backbutton;
 
     void Start()
     {
@@ -15,19 +15,45 @@ public class AudioEnabler : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("Music");
     }
 
-    public void findButtons()
+    public void FindButtons()
     {
+        StartCoroutine(delayedFind());
+    }
+
+    private IEnumerator delayedFind()
+    {
+        yield return new WaitForSeconds(0.3f);
+        Debug.LogError("Finding Buttons:");
         buttons = GameObject.FindGameObjectsWithTag("Button");
         backbutton = GameObject.Find("backButton");
 
         foreach (GameObject b in buttons)
         {
-            b.GetComponent<Button>().GetComponent<Button>().onClick.AddListener(PlayButtonSound);
+            Debug.LogError(b.name);
+            b.GetComponent<Button>().onClick.AddListener(PlayButtonSound);
         }
 
         if (backbutton != null)
         {
-            backbutton.GetComponent<Button>().GetComponent<Button>().onClick.AddListener(PlayBackSound);
+            backbutton.GetComponent<Button>().onClick.AddListener(PlayBackSound);
+        }
+    }
+
+    public void FindButtonsInstant()
+    {
+        Debug.LogError("Finding Buttons:");
+        buttons = GameObject.FindGameObjectsWithTag("Button");
+        backbutton = GameObject.Find("backButton");
+
+        foreach (GameObject b in buttons)
+        {
+            Debug.LogError(b.name);
+            b.GetComponent<Button>().onClick.AddListener(PlayButtonSound);
+        }
+
+        if (backbutton != null)
+        {
+            backbutton.GetComponent<Button>().onClick.AddListener(PlayBackSound);
         }
     }
 

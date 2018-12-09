@@ -236,15 +236,21 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
-  - name: Dog 5
+  - name: Angry 05
     type: 2
     audio: {fileID: 8300000, guid: 879b95f981e6c5341b8d872b28a9bca3, type: 3}
     volume: 1
     loop: 0
     source: {fileID: 0}
-  - name: Dog 5
+  - name: whip 1
     type: 2
-    audio: {fileID: 8300000, guid: 90e05d3a958009f40882de0326212563, type: 3}
+    audio: {fileID: 8300000, guid: f587a725130d511408e0fec762041363, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: whip 2
+    type: 2
+    audio: {fileID: 8300000, guid: 0efa25e17fce1a34697f7ddc29425834, type: 3}
     volume: 1
     loop: 0
     source: {fileID: 0}
@@ -259,5 +265,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f76cae685ddd714da71deeefa361b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttons: []
-  backbutton: {fileID: 0}
