@@ -25,6 +25,7 @@ public class Dog : MonoBehaviour {
         body.freezeRotation = true;
 
         anim = GetComponent<Animator>();
+        GetComponent<SpriteRenderer>().sprite = player.image;
     }
 	
 	// Update is called once per frame

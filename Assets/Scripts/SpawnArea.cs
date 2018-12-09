@@ -23,7 +23,7 @@ public class SpawnArea : MonoBehaviour
         {
             //Debug.Log(other.gameObject.name + " EXIT " + name);
             sheeps--;
-            other.GetComponent<Sheep>().MoveSoftly(transform.GetChild(0).position, false);
+            other.GetComponent<Sheep>().MoveSoftly(Vector3.zero, false);
         }
     }
 

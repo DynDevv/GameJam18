@@ -41,7 +41,7 @@ public class Shepherd : MonoBehaviour {
                 otherDogs.Clear();
                 ready = false;
                 anim.SetBool("attacking", true);
-                StartCoroutine(makeReady(readyTime));
+                StartCoroutine(MakeReady(readyTime));
             }
         }
 	}
@@ -73,14 +73,19 @@ public class Shepherd : MonoBehaviour {
         }
     }
 
-    private void disableAttacking()
+    private void DisableAttacking()
     {
         anim.SetBool("attacking", false);
     }
 
-    IEnumerator makeReady(float seconds)
+    IEnumerator MakeReady(float seconds)
     {
         yield return new WaitForSeconds(seconds);
         ready = true;
+    }
+
+    public void SetHat()
+    {
+
     }
 }

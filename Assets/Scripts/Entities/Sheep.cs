@@ -7,6 +7,7 @@ public class Sheep : MonoBehaviour {
 
     public float force = 5f;
     public float triggerRadius = 1f;
+    public float centerMovement = 8;
 
     private Rigidbody2D body;
     private Vector3 movement;
@@ -27,11 +28,9 @@ public class Sheep : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        
-        if (inSpawner)
-        {
-            body.AddForce((targetPosition - transform.position));
-        }
+
+        Vector3 slowDir = inSpawner ? targetPosition - transform.position : (targetPosition - transform.position).normalized / centerMovement;
+        body.AddForce(slowDir);
 
         anim.SetFloat("speed", body.velocity.magnitude);
         if(body.velocity.magnitude > 0.05)
