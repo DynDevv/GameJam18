@@ -12,16 +12,16 @@ public class PlayerObject : MonoBehaviour {
     //public string playerName;
 
     public Sprite icon;
-    public Sprite image;
+    public Sprite[] images;
     public Sprite hat;
 
     public void Awake()
     {
         string iconPath = "Icons/" + playerName.ToString() + "_dog";
-        string imagePath = "Dogs/" + playerName.ToString() + "_image";
+        string imagePath = "Dogs/" + playerName.ToString() + "_parts";
         string hatPath = "Shepherd/" + playerName.ToString() + "_hat";
         icon = Resources.Load<Sprite>(iconPath);
-        image = Resources.Load<Sprite>(imagePath);
+        images = Resources.LoadAll<Sprite>(imagePath);
         hat = Resources.Load<Sprite>(hatPath);
     }
 
