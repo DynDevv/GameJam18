@@ -24,8 +24,12 @@ public class Dog : MonoBehaviour {
         body.drag = 0;
         body.freezeRotation = true;
 
-        anim = GetComponent<Animator>();
-        GetComponent<SpriteRenderer>().sprite = player.image;
+        Transform animBody = transform.GetChild(0);
+        anim = animBody.GetComponent<Animator>();
+        animBody.GetChild(0).GetComponent<SpriteRenderer>().sprite = player.images[0];
+        animBody.GetChild(1).GetComponent<SpriteRenderer>().sprite = player.images[1];
+        animBody.GetChild(2).GetComponent<SpriteRenderer>().sprite = player.images[2];
+        animBody.GetChild(3).GetChild(0).GetComponent<SpriteRenderer>().sprite = player.images[3];
     }
 	
 	// Update is called once per frame
