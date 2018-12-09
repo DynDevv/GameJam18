@@ -27,6 +27,7 @@ public class SettingsMenu : MonoBehaviour {
             setRightButtonText(p, p.right.ToString());
             TogglePlayer(p);
 
+            Debug.Log(gameManager.GetPlayers().Count);
             //NOT WORKING AFTER RESTART
             foreach (PlayerObject player in gameManager.GetPlayers())
             {

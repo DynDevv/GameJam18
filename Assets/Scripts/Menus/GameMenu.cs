@@ -100,12 +100,6 @@ public class GameMenu : MonoBehaviour {
     {
         SceneManager.UnloadSceneAsync("Game");
         SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Additive);
-        StartCoroutine(DelayedFindButtons());
-    }
-
-    private IEnumerator DelayedFindButtons()
-    {
-        yield return new WaitForSeconds(0.3f);
         FindObjectOfType<AudioEnabler>().findButtons();
     }
 
