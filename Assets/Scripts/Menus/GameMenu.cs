@@ -70,6 +70,11 @@ public class GameMenu : MonoBehaviour {
         gameObject.transform.Find("Countdown").GetComponentInChildren<TextMeshProUGUI>().SetText(value);
     }
 
+    public void ShowIngameUI(List<PlayerObject> players)
+    {
+        //TODO
+    }
+
     public void ShowResults(List<SpawnArea> activeDogs)
     {
         gameObject.transform.Find("pauseButton").gameObject.SetActive(false);
@@ -98,15 +103,9 @@ public class GameMenu : MonoBehaviour {
 
     public void RestartGame()
     {
-        SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("Game");
-        StartCoroutine(DelayedFindButtons());
-    }
-
-    private IEnumerator DelayedFindButtons()
-    {
-        yield return new WaitForSeconds(0.3f);
-        FindObjectOfType<AudioEnabler>().findButtons();
+        SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Additive);
+        FindObjectOfType<AudioEnabler>().FindButtons();
     }
 
     public void QuitGame()

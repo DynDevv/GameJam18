@@ -21,11 +21,13 @@ public class AudioManager : MonoBehaviour {
         if (instance == null)
         {
             instance = this;
-        } else
+        }
+        else
         {
             Destroy(gameObject);
             return;
         }
+
         DontDestroyOnLoad(gameObject);
 
         foreach(Sound s in sounds)
@@ -49,7 +51,7 @@ public class AudioManager : MonoBehaviour {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
         {
-            Debug.Log("Audio clip" + name + "not found!");
+            Debug.LogError("Audio clip" + name + "not found!");
             return;
         }
         s.source.Play();

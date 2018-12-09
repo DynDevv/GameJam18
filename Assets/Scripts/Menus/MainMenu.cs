@@ -15,13 +15,8 @@ public class MainMenu : MonoBehaviour {
     {
         audioMixer = FindObjectOfType<AudioMixer>();
         gameManager = FindObjectOfType<GameManager>();
-    }
-
-    private void OnGUI()
-    {
-        //TODO clean that because it is called several times each update
-        //unmuteButton.SetActive(gameManager.muted);
-        //muteButton.SetActive(!gameManager.muted);
+        unmuteButton.SetActive(gameManager.muted);
+        muteButton.SetActive(!gameManager.muted);
     }
 
     public void Mute()

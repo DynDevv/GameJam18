@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Additive);
+        FindObjectOfType<AudioEnabler>().FindButtons();
     }
 
     void Awake()
@@ -95,10 +96,10 @@ public class GameManager : MonoBehaviour
 
     IEnumerator InitAfterDelay()
     {
+        FindObjectOfType<AudioEnabler>().FindButtons();
+
         yield return new WaitForSeconds(0.3f);
-        FindObjectOfType<AudioEnabler>().findButtons();
-        if (menu == null)
-            menu = FindObjectOfType<GameMenu>();
+        if (menu == null) menu = FindObjectOfType<GameMenu>();
 
         yield return new WaitForSeconds(0.8f);
         UpdateCountdown("2");
@@ -110,6 +111,7 @@ public class GameManager : MonoBehaviour
         menu.SetCountdownActive(false);
         
         spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
+        menu.ShowIngameUI(players);
         time = timeLimit;
         running = true;
 
@@ -168,5 +170,10 @@ public class GameManager : MonoBehaviour
                 list.Add(spawn);
 
         menu.ShowResults(list);
+    }
+
+    public List<PlayerObject> GetPlayers()
+    {
+        return players;
     }
 }
