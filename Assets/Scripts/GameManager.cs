@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public int startTimer = 30;
 
     public bool muted = false;
-    public GameObject dogPrefab, sheepPrefab, shepardPrefab;
+    public GameObject dogPrefab, sheepPrefab, shepherdPrefab;
 
     void Start()
     {
@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
         time = timeLimit;
         running = true;
 
-        //SPAWN DOGS & SHEPARDS
+        //SPAWN DOGS & SHEPHERDS
         foreach (PlayerObject player in players)
         {
             GameObject spawn = spawns[(int)Random.Range(0, spawns.Count)];
@@ -126,12 +126,12 @@ public class GameManager : MonoBehaviour
             dog.transform.parent = GameObject.Find("Dogs").transform;
             dog.GetComponent<Dog>().SetPlayer(player);
 
-            GameObject shepard = Instantiate(shepardPrefab, spawn.transform.position, spawn.transform.rotation);
-            shepard.transform.parent = GameObject.Find("Shepards").transform;
-            shepard.GetComponentInChildren<Shepherd>().SetOwnDog(dog.GetComponent<Dog>());
-            shepard.GetComponentInChildren<Shepherd>().SetHat(player.hat);
+            GameObject shepherd = Instantiate(shepherdPrefab, spawn.transform.position, spawn.transform.rotation);
+            shepherd.transform.parent = GameObject.Find("Shepherds").transform;
+            shepherd.GetComponentInChildren<Shepherd>().SetOwnDog(dog.GetComponent<Dog>());
+            shepherd.GetComponentInChildren<Shepherd>().SetHat(player.hat);
 
-            shepard.transform.Rotate(new Vector3(0, 0, 1), 180);
+            shepherd.transform.Rotate(new Vector3(0, 0, 1), 180);
             spawns.Remove(spawn);
         }
 

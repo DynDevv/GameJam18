@@ -190,7 +190,7 @@ MonoBehaviour:
   dogPrefab: {fileID: 1387097727274616, guid: 35b6818a22d9bfc489859c30b54585ea, type: 2}
   sheepPrefab: {fileID: 1405609447797002, guid: d27594d57d8479048b00989801bf28d3,
     type: 2}
-  shepardPrefab: {fileID: 1234964923609154, guid: 91d498bfa59ac7544bd825bf159f92af,
+  shepherdPrefab: {fileID: 1234964923609154, guid: 91d498bfa59ac7544bd825bf159f92af,
     type: 2}
 --- !u!4 &984701761 stripped
 Transform:
