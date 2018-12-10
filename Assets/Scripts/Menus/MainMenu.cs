@@ -17,15 +17,9 @@ public class MainMenu : MonoBehaviour {
         gameManager = FindObjectOfType<GameManager>();
 
         if (PlayerPrefs.GetInt("Muted") == 1)
-        {
-            gameManager.muted = true;
             Mute();
-        }
         else
-        {
-            gameManager.muted = false;
             Unmute();
-        }
 
         unmuteButton.SetActive(gameManager.muted);
         muteButton.SetActive(!gameManager.muted);
