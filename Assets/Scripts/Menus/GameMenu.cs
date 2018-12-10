@@ -11,6 +11,9 @@ public class GameMenu : MonoBehaviour {
     public GameManager gameManager;
     public GameObject ResultPrefab;
     public GameObject IngamePrefab;
+    public Slider musicSlider;
+    public Slider ambientSlider;
+    public Slider sfxSlider;
 
     void Start()
     {
@@ -21,43 +24,73 @@ public class GameMenu : MonoBehaviour {
     public void PauseGame()
     {
         gameManager.ChangePauseState(true);
+        LoadSliderValues();
     }
 
     public void ResumeGame()
     {
         gameManager.ChangePauseState(false);
+        SaveSliderValues();
     }
 
-    public void ChangeMusicVolume(Slider slider)
+    private void SaveSliderValues()
+    {
+        PlayerPrefs.SetFloat("Music", musicSlider.value);
+        PlayerPrefs.SetFloat("Ambient", ambientSlider.value);
+        PlayerPrefs.SetFloat("SFX", sfxSlider.value);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadSliderValues()
+    {
+        float music = PlayerPrefs.GetFloat("Music");
+        float ambient = PlayerPrefs.GetFloat("Ambient");
+        float sfx = PlayerPrefs.GetFloat("SFX");
+
+        if (music > 0)
+            musicSlider.value = music;
+
+        if (ambient > 0)
+            ambientSlider.value = ambient;
+
+        if (sfx > 0)
+            sfxSlider.value = sfx;
+
+        ChangeMusicVolume();
+        ChangeAmbientVolume();
+        ChangeSFXVolume();
+    }
+
+    public void ChangeMusicVolume()
     {
         if (gameManager.muted)
         {
             gameManager.muted = false;
             audioMixer.MuteAll(false);
         }
-        audioMixer.EditSlider(1, slider.value);
+        audioMixer.EditSlider(1, musicSlider.value);
         //Debug.Log("Music volume: " + slider.value);
     }
 
-    public void ChangeAmbientVolume(Slider slider)
+    public void ChangeAmbientVolume()
     {
         if (gameManager.muted)
         {
             gameManager.muted = false;
             audioMixer.MuteAll(false);
         }
-        audioMixer.EditSlider(0, slider.value);
+        audioMixer.EditSlider(0, ambientSlider.value);
         //Debug.Log("Ambient Sounds volume: " + slider.value);
     }
 
-    public void ChangeSFXVolume(Slider slider)
+    public void ChangeSFXVolume()
     {
         if (gameManager.muted)
         {
             gameManager.muted = false;
             audioMixer.MuteAll(false);
         }
-        audioMixer.EditSlider(2, slider.value);
+        audioMixer.EditSlider(2, sfxSlider.value);
         //Debug.Log("Sound Effects volume: " + slider.value);
     }
 
@@ -138,6 +171,7 @@ public class GameMenu : MonoBehaviour {
 
     public void RestartGame()
     {
+        SaveSliderValues();
         SceneManager.UnloadSceneAsync("Game");
         SceneManager.LoadSceneAsync("Menu", LoadSceneMode.Additive);
         FindObjectOfType<AudioEnabler>().FindButtons();
@@ -145,7 +179,7 @@ public class GameMenu : MonoBehaviour {
 
     public void QuitGame()
     {
-        Debug.Log("Quit!");
+        SaveSliderValues();
         Application.Quit();
     }
 }

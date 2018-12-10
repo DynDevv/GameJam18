@@ -15,6 +15,18 @@ public class MainMenu : MonoBehaviour {
     {
         audioMixer = FindObjectOfType<AudioMixer>();
         gameManager = FindObjectOfType<GameManager>();
+
+        if (PlayerPrefs.GetInt("Muted") == 1)
+        {
+            gameManager.muted = true;
+            Mute();
+        }
+        else
+        {
+            gameManager.muted = false;
+            Unmute();
+        }
+
         unmuteButton.SetActive(gameManager.muted);
         muteButton.SetActive(!gameManager.muted);
     }
@@ -23,17 +35,20 @@ public class MainMenu : MonoBehaviour {
     {
         gameManager.muted = true;
         audioMixer.MuteAll(true);
+        PlayerPrefs.SetInt("Muted", 1);
+        PlayerPrefs.Save();
     }
 
     public void Unmute()
     {
         gameManager.muted = false;
         audioMixer.MuteAll(false);
+        PlayerPrefs.SetInt("Muted", 0);
+        PlayerPrefs.Save();
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quit!");
         Application.Quit();
     }
 }

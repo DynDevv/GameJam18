@@ -7,12 +7,14 @@ using System;
 
 public class SettingsMenu : MonoBehaviour {
 
-    public GameManager gameManager;
+    private GameManager gameManager;
     PlayerObject[] players;
     public TextMeshProUGUI errorMessage;
     private Event keyEvent;
     private KeyCode newKey;
     private bool waitingForKey;
+    public GameObject timeObject;
+    public GameObject herdObject;
 
     void Start()
     {
@@ -40,6 +42,8 @@ public class SettingsMenu : MonoBehaviour {
                 }
             }
         }
+
+        LoadSliderValues();
     }
 
     public void PlayGame ()
@@ -60,13 +64,14 @@ public class SettingsMenu : MonoBehaviour {
 
         if (!error && playerList.Count > 0)
         {
+            SaveSliderValues();
             gameManager.StartGame(playerList);
         }
         else
         {
+            SaveSliderValues();
             ShowSettingsErrorDialog("Choose at least one dog and be sure to assign all keys!");
         }
-
     }
 
     public void ShowSettingsErrorDialog(string output)
@@ -204,27 +209,49 @@ public class SettingsMenu : MonoBehaviour {
 
     #region SLIDER
 
-    public void AdjustTimeSlider(GameObject Time)
+    private void SaveSliderValues()
+    {
+        PlayerPrefs.SetInt("Time", (int)timeObject.GetComponentInChildren<Slider>().value);
+        PlayerPrefs.SetInt("Herd", (int)herdObject.GetComponentInChildren<Slider>().value);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadSliderValues()
+    {
+        int time = PlayerPrefs.GetInt("Time");
+        int herd = PlayerPrefs.GetInt("Herd");
+
+        if (time > 0)
+            timeObject.GetComponentInChildren<Slider>().value = time;
+
+        if (herd > 0)
+            herdObject.GetComponentInChildren<Slider>().value = herd;
+
+        AdjustTimeSlider();
+        AdjustHerdSlider();
+    }
+
+    public void AdjustTimeSlider()
     {
         //read slider value
-        Slider slider = Time.GetComponentInChildren<Slider>();
+        Slider slider = timeObject.GetComponentInChildren<Slider>();
         int seconds = 30 + ((int)slider.value * 5);
 
         //output as min and sec to value text
-        string text = System.Math.Floor(seconds / 60f) + " min " + seconds % 60 + " sec";
-        Time.transform.Find("Value").GetComponent<TextMeshProUGUI>().SetText(text);
+        string text = Math.Floor(seconds / 60f) + " min " + seconds % 60 + " sec";
+        timeObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().SetText(text);
 
         //change in settings
         gameManager.timeLimit = (seconds);
     }
 
-    public void AdjustHerdSlider(GameObject Herd)
+    public void AdjustHerdSlider()
     {
         //read slider value
-        Slider slider = Herd.GetComponentInChildren<Slider>();
+        Slider slider = herdObject.GetComponentInChildren<Slider>();
 
         //output to value text
-        Herd.transform.Find("Value").GetComponent<TextMeshProUGUI>().SetText(slider.value + " sheep");
+        herdObject.transform.Find("Value").GetComponent<TextMeshProUGUI>().SetText(slider.value + " sheep");
 
         //change in settings
         gameManager.sheepLimit = ((int)slider.value);

@@ -7354,10 +7354,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1526446047}
         m_MethodName: AdjustHerdSlider
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1677686925}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8197,8 +8197,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09b9bf2c0bdb266499da808a5d5be275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
   errorMessage: {fileID: 720809200}
+  timeObject: {fileID: 1856883649}
+  herdObject: {fileID: 1677686925}
 --- !u!1 &1533522777
 GameObject:
   m_ObjectHideFlags: 0
@@ -9425,10 +9426,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1526446047}
         m_MethodName: AdjustTimeSlider
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1856883649}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

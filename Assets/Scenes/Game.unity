@@ -555,10 +555,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 583706362}
         m_MethodName: ChangeAmbientVolume
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 164396099}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1887,6 +1887,9 @@ MonoBehaviour:
     type: 2}
   IngamePrefab: {fileID: 1422178119033210, guid: 7664bef6a879c6d43bee89d061f54f2d,
     type: 2}
+  musicSlider: {fileID: 1471029875}
+  ambientSlider: {fileID: 164396099}
+  sfxSlider: {fileID: 1427036818}
 --- !u!1001 &648576173
 Prefab:
   m_ObjectHideFlags: 0
@@ -3844,10 +3847,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 583706362}
         m_MethodName: ChangeSFXVolume
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1427036818}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4009,10 +4012,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 583706362}
         m_MethodName: ChangeMusicVolume
-        m_Mode: 2
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 1471029875}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
