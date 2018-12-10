@@ -11,6 +11,7 @@ public class PowerUpManager : MonoBehaviour {
 
     private bool ready = true;
     private float timer;
+    private GameObject current;
 
 	// Use this for initialization
 	void Awake () {
@@ -33,8 +34,14 @@ public class PowerUpManager : MonoBehaviour {
             Transform tempTrans = locations.GetChild(rand2);
             GameObject tempUp = Instantiate(list[rand1],tempTrans.position, tempTrans.rotation);
             tempUp.GetComponent<PowerUp>().SetManager(this);
+            current = tempUp;
         }
 	}
+
+    private void OnDestroy()
+    {
+        Destroy(current);
+    }
 
     private float NewTimer()
     {

@@ -8,7 +8,10 @@ public abstract class PowerUp : MonoBehaviour {
 
     private void OnDestroy()
     {
-        manager.Free();
+        if (manager)
+        {
+            manager.Free();
+        }
     }
 
     public void SetManager(PowerUpManager newManager)

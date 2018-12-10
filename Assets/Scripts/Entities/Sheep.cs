@@ -30,7 +30,7 @@ public class Sheep : MonoBehaviour {
     void Update () {
 
         Vector3 slowDir = inSpawner ? targetPosition - transform.position : (targetPosition - transform.position).normalized / centerMovement;
-        body.AddForce(slowDir);
+        body.AddForce(slowDir * Time.deltaTime * 50);
 
         anim.SetFloat("speed", body.velocity.magnitude);
         if(body.velocity.magnitude > 0.05)
