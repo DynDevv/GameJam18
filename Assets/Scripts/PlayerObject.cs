@@ -9,7 +9,6 @@ public class PlayerObject : MonoBehaviour {
 
     public enum dogName { Fluffy, Cuddly, Fuzzy, Soft, Fleecy, Dog };
     public dogName playerName;
-    //public string playerName;
 
     public Sprite icon;
     public Sprite[] images;
@@ -24,6 +23,4 @@ public class PlayerObject : MonoBehaviour {
         images = Resources.LoadAll<Sprite>(imagePath);
         hat = Resources.Load<Sprite>(hatPath);
     }
-
-    //TODO Input.GetKeyDown(KeyCode.Space))
 }

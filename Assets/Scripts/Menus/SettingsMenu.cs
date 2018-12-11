@@ -15,6 +15,7 @@ public class SettingsMenu : MonoBehaviour {
     private bool waitingForKey;
     public GameObject timeObject;
     public GameObject herdObject;
+    public GameObject iconObject;
 
     void Start()
     {
@@ -43,6 +44,8 @@ public class SettingsMenu : MonoBehaviour {
             }
         }
 
+        iconObject.GetComponentInChildren<Toggle>().isOn = (PlayerPrefs.GetInt("Icon") == 0) ? true : false;
+        ToggleStartIcons(iconObject.GetComponentInChildren<Toggle>());
         LoadSliderValues();
     }
 
@@ -77,6 +80,13 @@ public class SettingsMenu : MonoBehaviour {
     public void ShowSettingsErrorDialog(string output)
     {
         errorMessage.SetText(output);
+    }
+
+    public void ToggleStartIcons(Toggle toggle)
+    {
+        gameManager.startIcons = toggle.isOn;
+        PlayerPrefs.SetInt("Icon", (gameManager.startIcons) ? 0 : 1);
+        PlayerPrefs.Save();
     }
 
     #region KEYCODES

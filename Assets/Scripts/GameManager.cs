@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     public int startTimer = 30;
 
     public bool muted = false;
+    public bool startIcons = true;
     public GameObject dogPrefab, sheepPrefab, shepherdPrefab;
 
     void Start()
@@ -56,6 +58,7 @@ public class GameManager : MonoBehaviour
 
     private void UpdateTimer()
     {
+        //TODO SOMETIMES SKIPS A SECOND, TAKES LONGER THAN A SECOND AND SHOWS 1 ON SCORES
         timer += Time.deltaTime;
 
         if (color.a == 0f && time <= startTimer)
@@ -96,10 +99,17 @@ public class GameManager : MonoBehaviour
 
     IEnumerator InitAfterDelay()
     {
+        spawns.Clear();
         FindObjectOfType<AudioEnabler>().FindButtons();
 
         yield return new WaitForSeconds(0.3f);
         if (menu == null) menu = FindObjectOfType<GameMenu>();
+        spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
+
+        //SPAWN SHEPHERDS & ASSIGN SPAWNS
+        AddStartIcon(spawns[0].GetComponent<SpawnArea>());
+
+
 
         yield return new WaitForSeconds(0.8f);
         UpdateCountdown("2");
@@ -110,13 +120,12 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         menu.SetCountdownActive(false);
 
-        spawns.Clear();
-        spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
         menu.ShowIngameUI(players);
+        RemoveStartIcons();
         time = timeLimit;
         running = true;
 
-        //SPAWN DOGS & SHEPHERDS
+        //SPAWN DOGS & ASSIGN SPAWNS
         foreach (PlayerObject player in players)
         {
             GameObject spawn = spawns[(int)Random.Range(0, spawns.Count)];
@@ -133,6 +142,8 @@ public class GameManager : MonoBehaviour
 
             shepherd.transform.Rotate(new Vector3(0, 0, 1), 180);
             spawns.Remove(spawn);
+
+            //TODO CHECK WHERE DOG GETS SPAWNED AND SHOW ICON THERE
         }
 
         //SPAWN SHEEPS
@@ -144,6 +155,82 @@ public class GameManager : MonoBehaviour
             sheep.transform.parent = GameObject.Find("Sheeps").transform;
             sheep.name = "Sheep" + (i + 1);
         }
+    }
+
+    //IEnumerator InitAfterDelay()
+    //{
+    //    spawns.Clear();
+    //    FindObjectOfType<AudioEnabler>().FindButtons();
+
+    //    yield return new WaitForSeconds(0.3f);
+    //    if (menu == null) menu = FindObjectOfType<GameMenu>();
+    //    spawns.AddRange(GameObject.FindGameObjectsWithTag("Spawn"));
+
+    //    //SPAWN SHEPHERDS & ASSIGN SPAWNS
+    //    AddStartIcon(spawns[0].GetComponent<SpawnArea>());
+
+    //    yield return new WaitForSeconds(0.8f);
+    //    UpdateCountdown("2");
+    //    yield return new WaitForSeconds(1f);
+    //    UpdateCountdown("1");
+    //    yield return new WaitForSeconds(1f);
+    //    UpdateCountdown("START");
+    //    yield return new WaitForSeconds(0.3f);
+    //    menu.SetCountdownActive(false);
+
+    //    menu.ShowIngameUI(players);
+    //    RemoveStartIcons();
+    //    time = timeLimit;
+    //    running = true;
+
+    //    //SPAWN DOGS & ASSIGN SPAWNS
+    //    foreach (PlayerObject player in players)
+    //    {
+    //        GameObject spawn = spawns[(int)Random.Range(0, spawns.Count)];
+    //        GameObject dog = Instantiate(dogPrefab, spawn.transform.position, spawn.transform.rotation);
+
+    //        spawn.GetComponent<SpawnArea>().SetOwner(dog);
+    //        dog.transform.parent = GameObject.Find("Dogs").transform;
+    //        dog.GetComponent<Dog>().SetPlayer(player);
+
+    //        GameObject shepherd = Instantiate(shepherdPrefab, spawn.transform.position, spawn.transform.rotation);
+    //        shepherd.transform.parent = GameObject.Find("Shepherds").transform;
+    //        shepherd.GetComponentInChildren<Shepherd>().SetOwnDog(dog.GetComponent<Dog>());
+    //        shepherd.GetComponentInChildren<Shepherd>().SetHat(player.hat);
+
+    //        shepherd.transform.Rotate(new Vector3(0, 0, 1), 180);
+    //        spawns.Remove(spawn);
+
+    //        //TODO CHECK WHERE DOG GETS SPAWNED AND SHOW ICON THERE
+    //    }
+
+    //    //SPAWN SHEEPS
+    //    for (int i = 0; i < sheepLimit; i++)
+    //    {
+    //        GameObject sheep = Instantiate(sheepPrefab, new Vector3(), new Quaternion());
+
+    //        sheep.transform.Rotate(new Vector3(0, 0, 1), Random.Range(0, 360));
+    //        sheep.transform.parent = GameObject.Find("Sheeps").transform;
+    //        sheep.name = "Sheep" + (i + 1);
+    //    }
+    //}
+
+    private void AddStartIcon(SpawnArea spawn)
+    {
+        if(startIcons)
+            foreach (PlayerObject player in players)
+            {
+                GameObject representation = Instantiate(menu.IngamePrefab, spawn.transform.position, menu.IngamePrefab.transform.rotation);
+                representation.transform.SetParent(gameObject.transform.Find("startIcons").transform, false);
+                representation.transform.Find("icon").GetComponent<Image>().sprite = player.icon;
+                representation.transform.Find("name").GetComponent<TextMeshProUGUI>().SetText(player.playerName.ToString());
+            }
+    }
+
+    private void RemoveStartIcons()
+    {
+        foreach (Transform icon in GameObject.Find("startIcons").transform)
+            Destroy(icon.gameObject);
     }
 
     public void ChangePauseState(bool state)
@@ -158,11 +245,6 @@ public class GameManager : MonoBehaviour
         GameObject.Find("Timer").GetComponent<TextMeshProUGUI>().color = color;
         FindObjectOfType<RandomHuhGenerator>().playHappySound();
         ChangePauseState(true);
-
-        //int maxSheep = 0;
-        //foreach (SpawnArea spawn in FindObjectsOfType<SpawnArea>())
-        //    if (spawn.GetSheeps() > maxSheep)
-        //        maxSheep = spawn.GetSheeps();
 
         List<SpawnArea> list = new List<SpawnArea>();
 
