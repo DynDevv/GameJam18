@@ -8,15 +8,13 @@ public class Shepherd : MonoBehaviour {
     public float hitTime = 0.5f;
     public float stunTime = 1.5f;
     public float readyTime = 0.5f;
-    
-    private Dog ownDog;
+    public SpriteRenderer hat;
+
+    private PlayerObject player;
     private List<Dog> otherDogs = new List<Dog>();
     private float timer = 0;
     private bool ready = true;
     private Animator anim;
-
-    public SpriteRenderer hat;
-
     private RandomHuhGenerator huh;
 
 	// Use this for initialization
@@ -52,15 +50,17 @@ public class Shepherd : MonoBehaviour {
         }
 	}
 
-    public void SetOwnDog(Dog own)
+    public void SetOwner(PlayerObject owner)
     {
-        ownDog = own;
+        hat.sprite = owner.hat;
+        player = owner;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         Dog tempDog = collision.GetComponent<Dog>();
-        if (ready && tempDog && tempDog != ownDog && !otherDogs.Contains(tempDog))
+
+        if (ready && tempDog && tempDog.GetOwner() != player && !otherDogs.Contains(tempDog))
         {
             if (otherDogs.Count==0)
             {
@@ -84,10 +84,5 @@ public class Shepherd : MonoBehaviour {
     {
         yield return new WaitForSeconds(seconds);
         ready = true;
-    }
-
-    public void SetHat(Sprite newHat)
-    {
-        hat.sprite = newHat;
     }
 }

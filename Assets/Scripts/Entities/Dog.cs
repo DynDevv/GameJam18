@@ -45,13 +45,13 @@ public class Dog : MonoBehaviour {
             body.rotation -= rotation;
 	}
 
-    public void SetPlayer(PlayerObject playerObject)
+    public void SetOwner(PlayerObject owner)
     {
-        player = playerObject;
+        player = owner;
         name = player.playerName.ToString();
     }
 
-    public PlayerObject GetPlayer()
+    public PlayerObject GetOwner()
     {
         return player;
     }

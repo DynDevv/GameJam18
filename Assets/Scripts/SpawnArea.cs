@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnArea : MonoBehaviour
 {
     private int sheep = 0;
-    private GameObject owner = null;
+    private PlayerObject player = null;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -27,14 +27,14 @@ public class SpawnArea : MonoBehaviour
         }
     }
 
-    public void SetOwner(GameObject owner)
+    public void SetOwner(PlayerObject owner)
     {
-        this.owner = owner;
+        player = owner;
     }
 
-    public GameObject GetOwner()
+    public PlayerObject GetOwner()
     {
-        return owner;
+        return player;
     }
 
     public int GetSheep()

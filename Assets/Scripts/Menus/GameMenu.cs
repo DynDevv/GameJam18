@@ -7,18 +7,37 @@ using TMPro;
 
 public class GameMenu : MonoBehaviour {
 
-    public AudioMixer audioMixer;
-    public GameManager gameManager;
+    private AudioMixer audioMixer;
+    private GameManager gameManager;
     public GameObject ResultPrefab;
     public GameObject IngamePrefab;
+    public GameObject IconPrefab;
     public Slider musicSlider;
     public Slider ambientSlider;
     public Slider sfxSlider;
+    public GameObject pauseMenu;
 
     void Start()
     {
         audioMixer = FindObjectOfType<AudioMixer>();
         gameManager = FindObjectOfType<GameManager>();
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pauseMenu.activeInHierarchy)
+            {
+                pauseMenu.SetActive(false);
+                ResumeGame();
+            }
+            else
+            {
+                pauseMenu.SetActive(true);
+                PauseGame();
+            }
+        }
     }
 
     public void PauseGame()
@@ -145,7 +164,7 @@ public class GameMenu : MonoBehaviour {
             height -= 100;
 
             // set rank
-            PlayerObject p = spawn.GetOwner().GetComponent<Dog>().GetPlayer();
+            PlayerObject p = spawn.GetOwner();
             if (spawn.GetSheep() == currentScore)
             {
                 score.transform.Find("rank").GetComponent<TextMeshProUGUI>().SetText(rank + ".");
@@ -166,8 +185,6 @@ public class GameMenu : MonoBehaviour {
             ++i;
         }
     }
-
-
 
     public void RestartGame()
     {

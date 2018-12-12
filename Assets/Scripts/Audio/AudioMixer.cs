@@ -18,7 +18,7 @@ public class AudioMixer : MonoBehaviour
 
     private AudioManager audiomanager;
 
-    private float mute = 1;
+    public float mute = 1;
 
     private void Start()
     {
@@ -66,6 +66,8 @@ public class AudioMixer : MonoBehaviour
 
     public void MuteAll(bool yesno)
     {
+        CancelInvoke();
+
         if (yesno == false)
         {
             WaitUp();

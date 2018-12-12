@@ -245,7 +245,7 @@ public class SettingsMenu : MonoBehaviour {
     {
         //read slider value
         Slider slider = timeObject.GetComponentInChildren<Slider>();
-        int seconds = 30 + ((int)slider.value * 5);
+        int seconds = 25 + ((int)slider.value * 5);
 
         //output as min and sec to value text
         string text = Math.Floor(seconds / 60f) + " min " + seconds % 60 + " sec";
