@@ -1890,6 +1890,7 @@ MonoBehaviour:
   ambientSlider: {fileID: 164396099}
   sfxSlider: {fileID: 1427036818}
   pauseMenu: {fileID: 1920325960}
+  pauseButton: {fileID: 1536755475}
 --- !u!1001 &648576173
 Prefab:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ public class GameMenu : MonoBehaviour {
     public Slider ambientSlider;
     public Slider sfxSlider;
     public GameObject pauseMenu;
+    public GameObject pauseButton;
 
     void Start()
     {
@@ -30,11 +31,13 @@ public class GameMenu : MonoBehaviour {
             if (pauseMenu.activeInHierarchy)
             {
                 pauseMenu.SetActive(false);
+                pauseButton.SetActive(true);
                 ResumeGame();
             }
             else
             {
                 pauseMenu.SetActive(true);
+                pauseButton.SetActive(false);
                 PauseGame();
             }
         }
