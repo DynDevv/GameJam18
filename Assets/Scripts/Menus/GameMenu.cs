@@ -65,33 +65,22 @@ public class GameMenu : MonoBehaviour {
 
     private void LoadSliderValues()
     {
-        float music = PlayerPrefs.GetFloat("Music");
         float ambient = PlayerPrefs.GetFloat("Ambient");
+        float music = PlayerPrefs.GetFloat("Music");
         float sfx = PlayerPrefs.GetFloat("SFX");
-
-        if (music > 0)
-            musicSlider.value = music;
 
         if (ambient > 0)
             ambientSlider.value = ambient;
 
+        if (music > 0)
+            musicSlider.value = music;
+
         if (sfx > 0)
             sfxSlider.value = sfx;
 
-        ChangeMusicVolume();
         ChangeAmbientVolume();
+        ChangeMusicVolume();
         ChangeSFXVolume();
-    }
-
-    public void ChangeMusicVolume()
-    {
-        if (gameManager.muted)
-        {
-            gameManager.muted = false;
-            audioMixer.MuteAll(false);
-        }
-        audioMixer.EditSlider(1, musicSlider.value);
-        //Debug.Log("Music volume: " + slider.value);
     }
 
     public void ChangeAmbientVolume()
@@ -103,6 +92,17 @@ public class GameMenu : MonoBehaviour {
         }
         audioMixer.EditSlider(0, ambientSlider.value);
         //Debug.Log("Ambient Sounds volume: " + slider.value);
+    }
+
+    public void ChangeMusicVolume()
+    {
+        if (gameManager.muted)
+        {
+            gameManager.muted = false;
+            audioMixer.MuteAll(false);
+        }
+        audioMixer.EditSlider(1, musicSlider.value);
+        //Debug.Log("Music volume: " + slider.value);
     }
 
     public void ChangeSFXVolume()

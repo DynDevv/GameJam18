@@ -23,6 +23,7 @@ public class MainMenu : MonoBehaviour {
 
         unmuteButton.SetActive(gameManager.muted);
         muteButton.SetActive(!gameManager.muted);
+        LoadSoundValues();
     }
 
     public void Mute()
@@ -44,5 +45,21 @@ public class MainMenu : MonoBehaviour {
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    private void LoadSoundValues()
+    {
+        float ambient = PlayerPrefs.GetFloat("Ambient");
+        float music = PlayerPrefs.GetFloat("Music");
+        float sfx = PlayerPrefs.GetFloat("SFX");
+
+        if (ambient > 0)
+            audioMixer.EditSlider(0, ambient);
+
+        if (music > 0)
+            audioMixer.EditSlider(1, music);
+
+        if (sfx > 0)
+            audioMixer.EditSlider(2, sfx);
     }
 }

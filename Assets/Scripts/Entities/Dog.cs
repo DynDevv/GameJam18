@@ -40,9 +40,9 @@ public class Dog : MonoBehaviour {
         
         body.velocity = transform.right * speed;
         if (Input.GetKey(player.left))
-            body.rotation += rotation;
+            body.rotation += rotation * Time.deltaTime * 50;
         if (Input.GetKey(player.right))
-            body.rotation -= rotation;
+            body.rotation -= rotation * Time.deltaTime * 50;
 	}
 
     public void SetOwner(PlayerObject owner)
