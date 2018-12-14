@@ -1,4 +1,7 @@
 # GameJam18 - FH Hagenberg
+
+[Download game builds by clicking here](https://github.com/tester3000/GameJam18/raw/master/GameJam18_Builds.zip)
+
 # Fluffy
 The annual shepherd dog contest has started in the small village of Kilcastle. You are competing with your faithful soul. 
 Five shepherd dogs will join the competition with you. It is your job to show your talent for shepherding and bring as much sheep into your gate as possible. 
