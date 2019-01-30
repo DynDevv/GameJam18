@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerObject : MonoBehaviour {
+public class PlayerObject : MonoBehaviour
+{
     public bool active;
     public KeyCode left;
     public KeyCode right;
@@ -22,5 +23,10 @@ public class PlayerObject : MonoBehaviour {
         icon = Resources.Load<Sprite>(iconPath);
         images = Resources.LoadAll<Sprite>(imagePath);
         hat = Resources.Load<Sprite>(hatPath);
+    }
+
+    public override bool Equals(object obj)
+    {
+        return ((PlayerObject)obj).playerName == playerName;
     }
 }

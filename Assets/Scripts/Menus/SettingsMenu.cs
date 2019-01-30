@@ -21,27 +21,31 @@ public class SettingsMenu : MonoBehaviour {
     {
         gameManager = FindObjectOfType<GameManager>();
         players = gameObject.GetComponentsInChildren<PlayerObject>();
+        List<PlayerObject> oldPlayers = gameManager.GetPlayers();
 
-        foreach(PlayerObject p in players)
+        foreach (PlayerObject p in players)
         {
+            if (oldPlayers.Count > 0)
+            {
+                p.gameObject.GetComponentInChildren<Toggle>().isOn = gameManager.GetPlayers().Contains(p) ? true : false;
+
+                foreach (PlayerObject player in oldPlayers)
+                {
+                    if (player.Equals(p))
+                    {
+                        p.right = player.right;
+                        p.left = player.left;
+                        oldPlayers.Remove(player);
+                        break;
+                    }
+                }
+            }
+
             p.gameObject.transform.Find("name").GetComponent<TextMeshProUGUI>().SetText(p.playerName.ToString());
             p.gameObject.transform.Find("icon").GetComponent<Image>().sprite = p.icon;
             setLeftButtonText(p, p.left.ToString());
             setRightButtonText(p, p.right.ToString());
             TogglePlayer(p);
-
-            foreach (PlayerObject player in gameManager.GetPlayers())
-            {
-                if (p.playerName == player.playerName)
-                {
-                    p.left = player.left;
-                    p.right = player.right;
-                    setLeftButtonText(p, p.left.ToString());
-                    setRightButtonText(p, p.right.ToString());
-                    p.gameObject.GetComponentInChildren<Toggle>().isOn = true;
-                    TogglePlayer(p);
-                }
-            }
         }
 
         iconObject.GetComponentInChildren<Toggle>().isOn = (PlayerPrefs.GetInt("Icon") == 0) ? true : false;
@@ -173,14 +177,11 @@ public class SettingsMenu : MonoBehaviour {
 
     public void TogglePlayer(PlayerObject player)
     {
-        //int index = Array.IndexOf(players, player);
         Toggle toggle = player.gameObject.GetComponentInChildren<Toggle>();
         player.active = toggle.isOn;
 
         foreach (Button b in player.gameObject.GetComponentsInChildren<Button>())
-        {
             b.interactable = toggle.isOn;
-        }
 
         ToggleImageVisibility(player, toggle.isOn);
         ToggleImageVisibility(player, toggle.isOn);
@@ -193,7 +194,8 @@ public class SettingsMenu : MonoBehaviour {
         if (visible)
         {
             tempColor.a = 1f;
-        } else
+        }
+        else
         {
             tempColor.a = 0.75f;
         }
