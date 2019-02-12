@@ -5,7 +5,7 @@
 # Fluffy
 The annual shepherd dog contest has started in the small village of Kilcastle. You are competing with your faithful soul. 
 Five shepherd dogs will join the competition with you. It is your job to show your talent for shepherding and bring as much sheep into your gate as possible. 
-Steal the opponents sheep if necessary, but beware of the enemy shepherds, they will protect their flock with every means. The winner of the contest will be the dog which collects the most sheep.
+Steal the opponents sheep if necessary, but beware of the enemy shepherds, they will protect their flock by all means. The winner of the contest will be the dog which collects the most sheep.
 
 # Game
 This is a quick game based on dexterity and competition. Each player has two keys to control the direction in which the dog is running. 
