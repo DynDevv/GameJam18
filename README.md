@@ -9,7 +9,7 @@ Steal the opponents sheep if necessary, but beware of the enemy shepherds, they 
 
 # Game
 This is a quick game based on dexterity and competition. Each player has two keys to control the direction in which the dog is running. 
-The goal is to lure as much sheep into the own gate (marked by color) as possible. The dogs can collect power ups to gain various advantages or disadvantages. 
+The goal is to lure as many sheep into the own gate (marked by color) as possible. The dogs can collect power ups to gain various advantages or disadvantages. 
 You can try stealing sheep from another player's gate but beware of the shepherd who will hit you, leaving you stunned for some time. Fluffy can be played with 2-6 players, the more players, the more fun.
 
 # Credits
